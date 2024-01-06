@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 21:18:51 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/06 16:10:00 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:11:53 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	map_dup(t_game *game)
 	game->map_copy[i] = NULL;
 }
 
-bool	is_empty_line(char *str)
+static bool	is_empty_line(char *str)
 {
 	int	i;
 
@@ -80,7 +80,6 @@ void	get_map(t_game *game)
 	{
 		if (is_param(game->filecontent[i]) == false
 			&& !is_empty_line(game->filecontent[i])
-			&& ft_strlen(game->filecontent[i]) > 0
 			&& game->filecontent[i][0] != '\n'
 			&& game->filecontent[i][0] != '\0')
 			game->map[k++] = ft_strdup(game->filecontent[i]);
