@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:01:20 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/05 22:36:22 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/06 10:10:40 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 
 	check_args(argc, argv);
 	init_struct(&game, argv);
+	check_data(game);
 	print_data(&game);
 	exit_game(game);
 	return (0);
@@ -25,8 +26,6 @@ int	main(int argc, char **argv)
 
 /*
 
-parse fichier + map + params est OK
-On doit maintenant s'occuper du check des params
-puis check de la map (charac, au moins 1 player, pas de trou, etc)
+check de la map (charac, au moins 1 player, pas de trou, etc)
 
 */

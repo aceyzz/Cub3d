@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:01:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/05 22:29:19 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/06 10:07:47 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@
 # define CYA	"\033[1;36m"
 # define WHI	"\033[1;37m"
 
+typedef struct s_rgb
+{
+	int		r;
+	int		g;
+	int		b;
+	bool	is_rgb;
+	bool	is_path;
+}			t_rgb;
+
 typedef struct s_game
 {
 	int		fd;
@@ -46,6 +55,7 @@ typedef struct s_game
 	char	*ceil;
 	char	**map;
 	char	**map_copy;
+	t_rgb	rgb[2];
 	size_t	mapsize;
 }			t_game;
 
@@ -61,11 +71,20 @@ void	free_data(t_game *game);
 void	print_data(t_game **game);
 void	init_struct(t_game **game, char **argv);
 /* check.c */
-void	check_args(int argc, char **argv);
+void	check_data(t_game *game);
 /* parse_map.c */
 void	get_map(t_game *game);
-/* parse_all.c */
+/* parse_file.c */
 void	get_filecontent(t_game *game);;
+/* parse_param.c */
 void	get_params(t_game *game);
+/* parse_utils.c */
+bool	is_valid_rgb(char *str);
+void	trim_fc(t_game *game);
+/* check_params.c */
+void	check_args(int argc, char **argv);
+void	check_nsew(t_game *game);
+void	check_rgb_values(t_game *game);
+void	check_fc(t_game *game);
 
 #endif

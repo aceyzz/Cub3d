@@ -6,22 +6,22 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:43:47 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/05 19:43:58 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/06 10:10:46 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	check_args(int argc, char **argv)
+void	check_data(t_game *game)
 {
-	if (argc != 2)
-		errmsg("Nombre d'argument invalide", false, NULL);
-	if (!argv[1])
-		errmsg("Argument invalide", false, NULL);
-	if (ft_strlen(argv[1]) < 5)
-		errmsg("Fichier invalide", false, NULL);
-	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4) != 0)
-		errmsg("Extension du fichier invalide", false, NULL);
-	if (open(argv[1], O_RDONLY) == -1)
-		errmsg("Impossible d'ouvrir le fichier", false, NULL);
+	if (!game->north || !game->north[0] || !game->south || !game->south[0]
+		|| !game->east || !game->east[0] || !game->west || !game->west[0]
+		|| !game->floor || !game->floor[0] || !game->ceil || !game->ceil[0])
+		errmsg("Parametres manquants", true, game);
+	check_nsew(game);
+	check_fc(game);
+	if ((game->rgb[0].is_path == false && game->rgb[0].is_rgb == false))
+		errmsg("Réglages FLOOR incorrects", true, game);
+	if ((game->rgb[1].is_path == false && game->rgb[1].is_rgb == false))
+		errmsg("Réglages CEIL incorrects", true, game);
 }

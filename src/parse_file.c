@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_all.c                                        :+:      :+:    :+:   */
+/*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 21:20:12 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/05 22:34:17 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/06 09:08:22 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,4 @@ void	get_filecontent(t_game *game)
 	game->filecontent = ft_split(buffer, '\n');
 	free_ptr(buffer);
 	close(fd);
-}
-
-void	get_params(t_game *game)
-{
-	int	i;
-
-	i = -1;
-	while (game->filecontent[++i])
-	{
-		if (ft_strncmp(game->filecontent[i], "NO ", 3) == 0)
-			game->north = ft_strdup(game->filecontent[i] + 3);
-		else if (ft_strncmp(game->filecontent[i], "SO ", 3) == 0)
-			game->south = ft_strdup(game->filecontent[i] + 3);
-		else if (ft_strncmp(game->filecontent[i], "WE ", 3) == 0)
-			game->west = ft_strdup(game->filecontent[i] + 3);
-		else if (ft_strncmp(game->filecontent[i], "EA ", 3) == 0)
-			game->east = ft_strdup(game->filecontent[i] + 3);
-		else if (ft_strncmp(game->filecontent[i], "F ", 2) == 0)
-			game->floor = ft_strdup(game->filecontent[i] + 2);
-		else if (ft_strncmp(game->filecontent[i], "C ", 2) == 0)
-			game->ceil = ft_strdup(game->filecontent[i] + 2);
-	}
 }

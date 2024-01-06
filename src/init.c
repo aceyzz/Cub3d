@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:32:44 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/05 22:31:42 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/06 09:43:09 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ void	print_data(t_game **game)
 	printf("\n");
 	while ((*game)->map_copy[++i])
 		printf("copy line %d:\t%s\n", i, (*game)->map_copy[i]);
+	printf("\n");
+	i = -1;
+	while (++i < 2)
+		printf("rgb[%d]:\t%d|%d|%d\n", i, (*game)->rgb[i].r, (*game)->rgb[i].g, (*game)->rgb[i].b);
 }
 
 void	init_struct(t_game **game, char **argv)
