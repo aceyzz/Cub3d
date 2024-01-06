@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:01:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/06 10:07:47 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/06 15:59:15 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	init_struct(t_game **game, char **argv);
 void	check_data(t_game *game);
 /* parse_map.c */
 void	get_map(t_game *game);
+/* normalize_map.c */
+void	normalize_map(t_game *game);
 /* parse_file.c */
 void	get_filecontent(t_game *game);;
 /* parse_param.c */

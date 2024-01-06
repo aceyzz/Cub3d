@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 21:18:51 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/05 22:33:48 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:10:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,20 @@ static void	map_dup(t_game *game)
 	game->map_copy[i] = NULL;
 }
 
+bool	is_empty_line(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
 void	get_map(t_game *game)
 {
 	int	i;
@@ -64,10 +78,15 @@ void	get_map(t_game *game)
 		errmsg("Malloc error map", true, game);
 	while (game->filecontent[i])
 	{
-		if (is_param(game->filecontent[i]) == false)
+		if (is_param(game->filecontent[i]) == false
+			&& !is_empty_line(game->filecontent[i])
+			&& ft_strlen(game->filecontent[i]) > 0
+			&& game->filecontent[i][0] != '\n'
+			&& game->filecontent[i][0] != '\0')
 			game->map[k++] = ft_strdup(game->filecontent[i]);
 		i++;
 	}
 	game->map[k] = NULL;
+	normalize_map(game);
 	map_dup(game);
 }
