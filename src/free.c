@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:38:20 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/07 15:52:12 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:24:52 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ void	free_tab(char **tab)
 void	free_data(t_game *game)
 {
 	free_ptr(game->filecontent_str);
-	free_tab(game->filecontent_tab);
+	free_tab(game->file_tab);
+	free_ptr(game->settings->north);
+	free_ptr(game->settings->south);
+	free_ptr(game->settings->east);
+	free_ptr(game->settings->west);
+	free_ptr(game->settings->floor);
+	free_ptr(game->settings->ceil);
 	free_ptr(game);
 }

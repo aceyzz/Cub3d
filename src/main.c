@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/07 16:25:47 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:22:59 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ void	print_data(t_game *game)
 	printf("\n ---------------------- \n");
 	printf("filecontent_str =\n\033[1;32m%s" RST, game->filecontent_str);
 	printf("\n ---------------------- \n");
-	printf("filecontent_tab =\n");
-	while (game->filecontent_tab[++i])
-		printf("ligne %d:\t\033[1;32m%s|\n" RST, i, game->filecontent_tab[i]);
+	printf("file_tab =\n");
+	while (game->file_tab[++i])
+		printf("ligne %d:\t\033[1;32m%s|\n" RST, i, game->file_tab[i]);
 	printf("\n ---------------------- \n");
 	printf("filecontent_size = \033[1;32m%zu" RST, game->filecontent_size);
 	printf("\n ---------------------- \n");
+	printf("settings->north = \033[1;32m%s\n" RST, game->settings->north);
+	printf("settings->south = \033[1;32m%s\n" RST, game->settings->south);
+	printf("settings->east = \033[1;32m%s\n" RST, game->settings->east);
+	printf("settings->west = \033[1;32m%s\n" RST, game->settings->west);
 }
 
 int	main(int argc, char **argv)

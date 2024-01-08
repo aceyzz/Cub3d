@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/07 15:57:07 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:26:42 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,32 @@
 # define CYA "\033[1;36m"
 # define WHT "\033[1;37m"
 
-# define x_res 1920
-# define y_res 1080
+# define X_RES 1920
+# define Y_RES 1080
+
+typedef struct s_settings
+{
+	char	*north;
+	char	*south;
+	char	*east;
+	char	*west;
+	char	*floor;
+	char	*ceil;
+	bool	fl_ispath;
+	bool	cl_ispath;
+	int		fl_rgb[3];
+	int		cl_rgb[3];
+}			t_settings;
 
 typedef struct s_game
 {
-	int		fd;
-	char	*filename;
-	char	*filecontent_str;
-	size_t	filecontent_size;
-	char	**filecontent_tab;
-}			t_game;
+	int			fd;
+	char		*filename;
+	char		*filecontent_str;
+	size_t		filecontent_size;
+	char		**file_tab;
+	t_settings	*settings;
+}				t_game;
 
 /* free.c */
 void	free_ptr(void *ptr);
@@ -55,6 +70,8 @@ void	errmsg(const char *errmsg, bool to_free, t_game *game);
 void	exit_game(t_game *game);
 /* check_args.c */
 void	check_args(int argc, char **argv);
+/* check_settings.c */
+void	check_settings(t_game *game);
 /* init_data.c */
 void	init_data(t_game **game, char **argv);
 
