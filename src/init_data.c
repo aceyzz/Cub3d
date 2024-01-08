@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/08 20:03:17 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:06:51 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	parse_settings(t_game **game)
 {
 	int	i;
 
-	i = 0;
-	while ((*game)->file_tab[i])
+	i = -1;
+	while ((*game)->file_tab[++i])
 	{
 		if (ft_strncmp((*game)->file_tab[i], "NO ", 3) == 0)
 			(*game)->settings->north = ft_strdup((*game)->file_tab[i] + 3);
@@ -51,7 +51,6 @@ void	parse_settings(t_game **game)
 			(*game)->settings->floor = ft_strdup((*game)->file_tab[i] + 2);
 		else if (ft_strncmp((*game)->file_tab[i], "C ", 2) == 0)
 			(*game)->settings->ceil = ft_strdup((*game)->file_tab[i] + 2);
-		i++;
 	}
 	check_settings(*game);
 }
