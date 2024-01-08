@@ -6,13 +6,13 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 17:04:27 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/08 18:26:36 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/08 19:46:47 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	check_nsew(t_game *game)
+static void	check_nsew(t_game *game)
 {
 	if (ft_strncmp(game->settings->north + ft_strlen(game->settings->north) - 4,
 			".xpm", 4) != 0
@@ -33,13 +33,35 @@ void	check_nsew(t_game *game)
 		errmsg("Texture West incorrecte", true, game);
 }
 
-void	check_open(char *path, t_game *game)
+static void	check_open(char *path, t_game *game)
 {
 	if (open(path, O_RDONLY) == -1)
 		errmsg("Texture floor/ceiling not openable", true, game);
 }
 
-void	check_fc(t_game *game)
+static void	check_rgb(char *rgb, t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	j = 0;
+	while (rgb[++i])
+	{
+		if (rgb[i] == ',')
+			j++;
+	}
+	if (j != 2)
+		errmsg("RGB incorrect", true, game);
+	i = -1;
+	while (rgb[++i])
+	{
+		if (rgb[i] != ',' && !ft_isdigit(rgb[i]) && rgb[i] != ' ')
+			errmsg("RGB incorrect", true, game);
+	}
+}
+
+static void	check_fc(t_game *game)
 {
 	game->settings->fl_ispath = false;
 	game->settings->cl_ispath = false;
@@ -53,10 +75,15 @@ void	check_fc(t_game *game)
 		check_open(game->settings->floor, game);
 	if (game->settings->cl_ispath == true)
 		check_open(game->settings->ceil, game);
-	// if (game->settings->fl_ispath == false)
-	// 	check_rgb(game->settings->floor, game);
-	// if (game->settings->cl_ispath == false)
-	// 	check_rgb(game->settings->ceil, game);
+	if (game->settings->fl_ispath == false)
+		check_rgb(game->settings->floor, game);
+	if (game->settings->cl_ispath == false)
+		check_rgb(game->settings->ceil, game);
+	if (game->settings->fl_ispath == false)
+		game->settings->floor = remove_spaces(game->settings->floor);
+	if (game->settings->cl_ispath == false)
+		game->settings->ceil = remove_spaces(game->settings->ceil);
+	init_rgb(game);
 }
 
 void	check_settings(t_game *game)

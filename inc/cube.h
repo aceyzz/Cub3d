@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/08 18:26:42 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/08 19:49:54 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,12 @@ void	errmsg(const char *errmsg, bool to_free, t_game *game);
 void	exit_game(t_game *game);
 /* check_args.c */
 void	check_args(int argc, char **argv);
+char	*remove_spaces(char *str);
 /* check_settings.c */
 void	check_settings(t_game *game);
 /* init_data.c */
 void	init_data(t_game **game, char **argv);
+/* init_rgb.c */
+void	init_rgb(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:02:39 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/07 13:14:22 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/08 19:45:29 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,32 @@ void	check_args(int argc, char **argv)
 		errmsg("Extension de fichier incorrecte", false, NULL);
 	if (open(argv[1], O_RDONLY) == -1)
 		errmsg("Impossible d'ouvrir le fichier", false, NULL);
+}
+
+char	*remove_spaces(char *str)
+{
+	char	*result;
+	int		i;
+	size_t	len;
+
+	i = -1;
+	len = 0;
+	while (str[++i])
+	{
+		if (str[i] != ' ')
+			len++;
+	}
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	i = -1;
+	len = 0;
+	while (str[++i])
+	{
+		if (str[i] != ' ')
+			result[len++] = str[i];
+	}
+	result[len] = '\0';
+	free(str);
+	return (result);
 }
