@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/09 08:59:23 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:27:24 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,12 @@ char	*remove_spaces(char *str);
 void	check_settings(t_game *game);
 /* check_utils.c */
 int		tab_size(char **tab);
+bool	is_empty_line(char *line);
 /* init_data.c */
 void	init_data(t_game **game, char **argv);
 /* init_rgb.c */
 void	init_rgb(t_game *game);
+/* init_map.c */
+void	parse_map(t_game *game);
 
 #endif
