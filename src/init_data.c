@@ -6,13 +6,13 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/08 20:24:42 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 09:00:45 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	parse_filecontent(t_game *game)
+static void	parse_filecontent(t_game *game)
 {
 	char	buf[1];
 
@@ -24,15 +24,21 @@ void	parse_filecontent(t_game *game)
 	close(game->fd);
 	game->filecontent_str = malloc(sizeof(char) * (game->filecontent_size + 1));
 	if (!game->filecontent_str)
-		errmsg("Malloc error", false, game);
+		errmsg("Malloc error", true, game);
 	game->fd = open(game->filename, O_RDONLY);
 	read(game->fd, game->filecontent_str, game->filecontent_size);
 	game->filecontent_str[game->filecontent_size] = '\0';
 	close(game->fd);
+	if (!game->filecontent_str || !game->filecontent_str[0])
+		errmsg("Fichier vide", true, game);
 	game->file_tab = ft_split_nl(game->filecontent_str);
+	if (!game->file_tab || !game->file_tab[0])
+		errmsg("Malloc error file_tab", true, game);
+	if (tab_size(game->file_tab) < 9)
+		errmsg("Fichier trop petit", true, game);
 }
 
-void	parse_settings(t_game **game)
+static void	parse_settings(t_game **game)
 {
 	int	i;
 
@@ -66,5 +72,5 @@ void	init_data(t_game **game, char **argv)
 	(*game)->filename = argv[1];
 	parse_filecontent(*game);
 	parse_settings(game);
-	// parse_map(game); TODO !
+	// parse_map(game);
 }

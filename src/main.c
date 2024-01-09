@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/08 20:24:44 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 08:35:31 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ void	print_data(t_game *game)
 	while (++i < 3)
 		printf("settings->fl_rgb[%d] = \033[1;32m%d\033[0;m  \t| settings->cl_rgb[%d] = \033[1;32m%d\033[0;m\n", i,
 			game->settings->fl_rgb[i], i, game->settings->cl_rgb[i]);
-	i = -1;
-	while (game->map[++i])
-		printf("ligne %d:\t\033[1;32m%s|\n" RST, i, game->map[i]);
 }
 
 int	main(int argc, char **argv)

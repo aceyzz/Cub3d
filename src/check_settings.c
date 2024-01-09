@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 17:04:27 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/08 20:24:46 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 08:55:12 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,12 @@ static void	check_fc(t_game *game)
 
 void	check_settings(t_game *game)
 {
-	if (!game->settings->north || !game->settings->south
-		|| !game->settings->east || !game->settings->west
-		|| !game->settings->floor || !game->settings->ceil)
+	if (!game->settings->north || !game->settings->north[0]
+		|| !game->settings->south || !game->settings->south[0]
+		|| !game->settings->east || !game->settings->east[0]
+		|| !game->settings->west || !game->settings->west[0]
+		|| !game->settings->floor || !game->settings->floor[0]
+		|| !game->settings->ceil || !game->settings->ceil[0])
 		errmsg("Missing settings", true, game);
 	check_nsew(game);
 	check_fc(game);
