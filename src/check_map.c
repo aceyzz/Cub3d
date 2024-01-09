@@ -6,13 +6,13 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:26:44 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/09 12:34:53 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:50:42 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-bool	is_valid_char(char c)
+static bool	is_valid_char(char c)
 {
 	if (c != '0' && c != '1' && c != '2' && c != 'N' && c != 'S'
 		&& c != 'E' && c != 'W' && c != ' ')
@@ -48,4 +48,5 @@ static void	check_valid_chars(t_game *game)
 void	check_map(t_game *game)
 {
 	check_valid_chars(game);
+	map_equalizer(game);
 }
