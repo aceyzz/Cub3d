@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/09 12:52:08 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:56:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_game
 	char		**file_tab;
 	t_settings	*settings;
 	char		**map;
+	char		**map_copy;
 }				t_game;
 
 /* free.c */
@@ -87,5 +88,6 @@ void	init_data(t_game **game, char **argv);
 void	init_rgb(t_game *game);
 /* init_map.c */
 void	parse_map(t_game *game);
+void	create_map_copy(t_game *game);
 
 #endif
