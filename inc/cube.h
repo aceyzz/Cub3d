@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/09 09:27:24 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:30:29 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ void	check_args(int argc, char **argv);
 char	*remove_spaces(char *str);
 /* check_settings.c */
 void	check_settings(t_game *game);
+/* check_map.c */
+void	check_map(t_game *game);
 /* check_utils.c */
 int		tab_size(char **tab);
 bool	is_empty_line(char *line);

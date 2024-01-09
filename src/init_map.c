@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:08:57 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/09 09:33:52 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:26:35 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ void	parse_map(t_game *game)
 		&& ft_strncmp(game->file_tab[i], "C ", 2) != 0)
 		i--;
 	if (i == 0 || (end - i) < 3)
-		errmsg("Map invalide", true, game);
+		errmsg("Taille de map invalide", true, game);
 	create_map(&game, ++i, end);
-	// check_rest_of_file(game, i); -> si rien d'autre que map et settings
-	// check_map(game); -> caractères valides, pas de trou, 1 joueur, border ok
+	if (tab_size(game->map) + 6 != tab_size(game->file_tab))
+		errmsg("Map invalide detectée", true, game);
+	check_map(game);
 }
