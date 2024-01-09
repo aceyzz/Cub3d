@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:37:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/08 20:26:05 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:37:50 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	errmsg(const char *errmsg, bool to_free, t_game *game)
 {
-	write(2, "Error:\n", 8);
+	write(2, "\033[1;31mError:\n", 14);
 	printf(YEL);
 	printf("%s.\n", errmsg);
 	printf(RST);

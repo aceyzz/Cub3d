@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/09 09:21:33 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:39:33 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	main(int argc, char **argv)
 	// check_data(&game);
 	// launch_game(&game);
 	print_data(game);
-	free_data(game);
+	exit_game(game);
 	return (0);
 }
