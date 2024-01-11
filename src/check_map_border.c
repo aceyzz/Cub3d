@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:18:11 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 17:11:40 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:06:27 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ static void	check_top_bottom(t_game *game)
 			errmsg("Bordure haute de la map incorrecte", true, game);
 		i++;
 	}
-	last = 0;
-	while (game->map[last + 1])
-		last++;
+	last = size_tab(game->map) - 1;
 	i = 0;
 	while (game->map[last][i])
 	{
@@ -65,8 +63,39 @@ static void	check_left_right(t_game *game)
 	}
 }
 
+static size_t	is_surrounded(t_game *game, size_t y, size_t x)
+{
+	if (y == 0 || x == 0 || y == size_tab(game->map) - 1
+		|| x == ft_strlen(game->map[y]) - 1)
+		return (0);
+	if (game->map[y - 1][x] == ' ' || game->map[y + 1][x] == ' '
+		|| game->map[y][x - 1] == ' ' || game->map[y][x + 1] == ' ')
+		return (0);
+	return (1);
+}
+
+static void	check_linked_borders(t_game *game)
+{
+	size_t	i;
+	size_t	k;
+
+	i = -1;
+	while (game->map[++i])
+	{
+		k = 0;
+		while (game->map[i][k])
+		{
+			if (game->map[i][k] == '0')
+				if (is_surrounded(game, i, k) == 0)
+					errmsg("Map invalide detectée", true, game);
+			k++;
+		}
+	}
+}
+
 void	check_map_border(t_game *game)
 {
 	check_top_bottom(game);
 	check_left_right(game);
+	check_linked_borders(game);
 }

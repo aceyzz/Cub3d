@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 16:26:47 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:34:05 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	map_equalizer(t_game *game);
 /* check_map_border.c */
 void	check_map_border(t_game *game);
 /* check_utils.c */
+size_t	size_tab(char **tab);
 int		tab_size(char **tab);
 bool	is_empty_line(char *line);
 /* init_data.c */
