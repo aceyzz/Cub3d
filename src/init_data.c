@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 17:11:37 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:13:57 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	init_data(t_game **game, char **argv)
 		errmsg("Malloc error", false, *game);
 	(*game)->settings = malloc(sizeof(t_settings));
 	if (!(*game)->settings)
-		errmsg("Malloc error", false, *game);
+		errmsg("Malloc error", true, *game);
 	(*game)->filename = argv[1];
 	parse_filecontent(*game);
 	parse_settings(game);

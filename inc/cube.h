@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 19:54:49 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:13:55 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ typedef struct s_game
 	char		*filecontent_str;
 	size_t		filecontent_size;
 	char		**file_tab;
-	t_settings	*settings;
 	char		**map;
 	char		**map_copy;
 	size_t		map_x;
 	size_t		map_y;
+	t_settings	*settings;
 }				t_game;
 
 /* free.c */
