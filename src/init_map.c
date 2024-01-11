@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:08:57 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 16:21:22 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:59:14 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ void	create_map_copy(t_game **game)
 	}
 }
 
+static void	get_size_map(t_game **game)
+{
+	(*game)->map_x = ft_strlen((*game)->map[0]);
+	(*game)->map_y = size_tab((*game)->map);
+}
+
 void	parse_map(t_game *game)
 {
 	int	i;
@@ -74,4 +80,5 @@ void	parse_map(t_game *game)
 	if (tab_size(game->map) + 6 != tab_size(game->file_tab))
 		errmsg("Map invalide detectée", true, game);
 	check_map(game);
+	get_size_map(&game);
 }
