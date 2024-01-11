@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:18:11 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 19:06:27 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:51:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,17 @@ static void	check_left_right(t_game *game)
 	size_t	i;
 	size_t	k;
 
-	i = 0;
-	while (game->map[i])
+	i = -1;
+	while (game->map[++i])
 	{
 		k = 0;
 		while (game->map[i][k] && game->map[i][k] == ' ')
 			k++;
 		if (game->map[i][k] != '1')
 			errmsg("Bordure gauche de la map incorrecte", true, game);
-		i++;
 	}
-	i = 0;
-	while (game->map[i])
+	i = -1;
+	while (game->map[++i])
 	{
 		k = 0;
 		while (game->map[i][k + 1])
@@ -59,11 +58,10 @@ static void	check_left_right(t_game *game)
 			k--;
 		if (game->map[i][k] != '1')
 			errmsg("Bordure droite de la map incorrecte", true, game);
-		i++;
 	}
 }
 
-static size_t	is_surrounded(t_game *game, size_t y, size_t x)
+static size_t	moturki(t_game *game, size_t y, size_t x)
 {
 	if (y == 0 || x == 0 || y == size_tab(game->map) - 1
 		|| x == ft_strlen(game->map[y]) - 1)
@@ -86,7 +84,7 @@ static void	check_linked_borders(t_game *game)
 		while (game->map[i][k])
 		{
 			if (game->map[i][k] == '0')
-				if (is_surrounded(game, i, k) == 0)
+				if (moturki(game, i, k) == 0)
 					errmsg("Map invalide detectée", true, game);
 			k++;
 		}
