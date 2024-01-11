@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 09:08:57 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 15:32:45 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:21:22 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ void	create_map(t_game **game, int start, int end)
 		if (!(*game)->map[i])
 			errmsg("Malloc error", true, (*game));
 		start++;
+		i++;
+	}
+}
+
+void	create_map_copy(t_game **game)
+{
+	int	i;
+
+	i = 0;
+	(*game)->map_copy = malloc(sizeof(char *) * (tab_size((*game)->map) + 1));
+	if (!(*game)->map_copy)
+		errmsg("Malloc error", true, (*game));
+	(*game)->map_copy[tab_size((*game)->map)] = NULL;
+	while ((*game)->map[i])
+	{
+		(*game)->map_copy[i] = ft_strdup((*game)->map[i]);
+		if (!(*game)->map_copy[i])
+			errmsg("Malloc error", true, (*game));
 		i++;
 	}
 }

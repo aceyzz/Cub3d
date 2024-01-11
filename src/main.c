@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 15:33:09 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:22:49 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ void	print_data(t_game *game)
 	while (game->map[++i])
 		printf("ligne %d:\t\033[1;32m%s|\n" RST, i, game->map[i]);
 	printf(" ---------------------- \n");
-	// i = -1;
-	// printf("map_copy =\n");
-	// while (game->map_copy[++i])
-	// 	printf("ligne %d:\t\033[1;33m%s|\n" RST, i, game->map_copy[i]);
+	i = -1;
+	printf("map_copy =\n");
+	while (game->map_copy[++i])
+		printf("ligne %d:\t\033[1;33m%s|\n" RST, i, game->map_copy[i]);
+	printf(" ---------------------- \n");
 }
 
 int	main(int argc, char **argv)

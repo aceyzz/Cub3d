@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:26:44 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 15:34:41 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/11 16:26:47 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,6 @@ void	check_map(t_game *game)
 {
 	check_valid_chars(game);
 	map_equalizer(game);
+	create_map_copy(&game);
+	check_map_border(game);
 }
