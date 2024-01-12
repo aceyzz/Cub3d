@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:18:11 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 19:51:00 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/12 10:32:18 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ static void	check_linked_borders(t_game *game)
 		k = 0;
 		while (game->map[i][k])
 		{
-			if (game->map[i][k] == '0')
+			if (game->map[i][k] == '0'
+				|| game->map[i][k] == 'N' || game->map[i][k] == 'S'
+				|| game->map[i][k] == 'E' || game->map[i][k] == 'W')
 				if (moturki(game, i, k) == 0)
 					errmsg("Map invalide detectée", true, game);
 			k++;
