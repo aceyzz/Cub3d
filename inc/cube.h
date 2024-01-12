@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 20:13:55 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:23:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,24 @@
 # define X_RES 1920
 # define Y_RES 1080
 
+# define K_ESC 53
+# define K_W 13
+# define K_A 0
+# define K_S 1
+# define K_D 2
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+	void	*fl;
+	void	*cl;
+	void	*no;
+	void	*so;
+	void	*ea;
+	void	*we;
+}			t_mlx;
+
 typedef struct s_settings
 {
 	char	*north;
@@ -63,6 +81,7 @@ typedef struct s_game
 	size_t		map_x;
 	size_t		map_y;
 	t_settings	*settings;
+	t_mlx		*mlx;
 }				t_game;
 
 /* free.c */
