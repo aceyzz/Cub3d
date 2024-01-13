@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/13 13:21:24 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:37:34 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@
 # define K_A 0
 # define K_S 1
 # define K_D 2
+# define K_LEFT 123
+# define K_RIGHT 124
+
+# define ROTA_SPEED 0.1
+# define MOVE_SPEED 0.1
 
 typedef struct s_mlx
 {

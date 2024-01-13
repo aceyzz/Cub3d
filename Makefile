@@ -6,11 +6,11 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/13 13:20:08 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/13 19:20:43 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= cub3D
+NAME	= cube
 
 SRC_DIR = src/
 INC_DIR = inc/
@@ -22,7 +22,7 @@ SRC		= $(wildcard $(SRC_DIR)checks/*.c) \
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-MLX		= -L./$(INC_DIR)mlx -lmlx -framework OpenGL -framework AppKit
+MLX		= -L./$(INC_DIR)mlx -lmlx -framework OpenGL -framework AppKit -O3 -ffast-math
 RM		= rm -f
 
 all:
@@ -34,8 +34,8 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(MLX) -o $(NAME) $(OBJ) $(INC_DIR)libft/libft.a $(INC_DIR)mlx/libmlx.a
 	@echo "\033[1;36mMLX ready.\033[0m"
 	@echo "\033[1;36mLibft ready.\033[0m"
-	@echo "\033[1;36mCub3D ready.\033[0m"
-	@echo "\033[1;33m\n\nUsage : ./cub3d <path/to/map.cub>\033[0m"
+	@echo "\033[1;36mCube ready.\033[0m"
+	@echo "\033[1;33m\n\nUsage : ./cube <path/to/map.cub>\033[0m"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
@@ -51,7 +51,7 @@ fclean: clean
 	@$(RM) $(NAME)
 	@make fclean -C $(INC_DIR)libft > /dev/null 2>&1
 	@echo "\033[1;35mLibft removed.\033[0m"
-	@echo "\033[1;35mCub3D removed.\033[0m"
+	@echo "\033[1;35mCube removed.\033[0m"
 
 re: fclean all
 
