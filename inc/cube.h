@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/12 14:23:00 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:21:24 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ typedef struct s_game
 	t_mlx		*mlx;
 }				t_game;
 
+/* print_data.c */
+void	print_data(t_game *game);
 /* free.c */
 void	free_ptr(void *ptr);
 void	free_tab(char **tab);

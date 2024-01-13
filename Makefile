@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/13 13:07:59 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/13 13:20:08 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC_DIR = src/
 INC_DIR = inc/
 SRC		= $(wildcard $(SRC_DIR)checks/*.c) \
 			$(wildcard $(SRC_DIR)cleaners/*.c) \
+			$(wildcard $(SRC_DIR)debugs/*.c) \
 			$(wildcard $(SRC_DIR)init/*.c) \
 			$(wildcard $(SRC_DIR)main/*.c)
 OBJ		= $(SRC:.c=.o)
