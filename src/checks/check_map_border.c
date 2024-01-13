@@ -80,15 +80,14 @@ static void	check_linked_borders(t_game *game)
 	i = -1;
 	while (game->map[++i])
 	{
-		k = 0;
-		while (game->map[i][k])
+		k = -1;
+		while (game->map[i][++k])
 		{
 			if (game->map[i][k] == '0'
 				|| game->map[i][k] == 'N' || game->map[i][k] == 'S'
 				|| game->map[i][k] == 'E' || game->map[i][k] == 'W')
 				if (moturki(game, i, k) == 0)
-					errmsg("Map invalide detectée", true, game);
-			k++;
+					errmsg("Map non correctement fermée", true, game);
 		}
 	}
 }
