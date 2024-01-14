@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:13:39 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 10:53:27 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:55:16 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	print_settings(t_game *game)
 	int	i;
 
 	i = -1;
+	printf("\n\033[1;31mPRINT SETTINGS:\n" RST);
 	printf("settings->north = \033[1;36m%s\n" RST, game->settings->north);
 	printf("settings->south = \033[1;36m%s\n" RST, game->settings->south);
 	printf("settings->east = \033[1;36m%s\n" RST, game->settings->east);
@@ -66,6 +67,7 @@ static void	print_settings(t_game *game)
 
 static void	print_player_rays(t_game *game)
 {
+	printf("\n\033[1;31mPRINT PLAYER:\n" RST);
 	printf("player->pos_x = \033[1;36m%f\n" RST, game->player->pos_x);
 	printf("player->pos_y = \033[1;36m%f\n" RST, game->player->pos_y);
 	printf("player->orientation = \033[1;36m%f\n" RST,
@@ -83,8 +85,6 @@ void	print_data(t_game *game)
 {
 	printf("\n\033[1;31mPRINT FILE INFO:\n" RST);
 	print_fileinfos(game);
-	printf("\n\033[1;31mPRINT SETTINGS:\n" RST);
 	print_settings(game);
-	printf("\n\033[1;31mPRINT PLAYER:\n" RST);
 	print_player_rays(game);
 }
