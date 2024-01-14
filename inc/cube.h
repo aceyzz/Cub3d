@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 10:49:36 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/14 11:22:07 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,7 @@ void	create_map_copy(t_game **game);
 void	init_player(t_game **game);
 /* init_rays.c */
 void	init_rays(t_game **game);
+/* init_mlx.c */
+void	init_mlx(t_game *game);
 
 #endif

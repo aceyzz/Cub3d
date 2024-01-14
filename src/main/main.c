@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/13 13:26:30 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/14 11:21:58 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 
 	check_args(argc, argv);
 	init_data(&game, argv);
+	init_mlx(game);
 	print_data(game);
 	exit_game(game);
 	return (0);
