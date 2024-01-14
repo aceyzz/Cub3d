@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/13 18:37:34 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:27:31 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,25 @@
 # define ROTA_SPEED 0.1
 # define MOVE_SPEED 0.1
 
+# define FOV 60
+
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	orientation;
+}			t_player;
+
+typedef struct s_ray
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}			t_ray;
+
 typedef struct s_mlx
 {
 	void	*mlx;
@@ -87,6 +106,8 @@ typedef struct s_game
 	size_t		map_y;
 	t_settings	*settings;
 	t_mlx		*mlx;
+	t_player	*player;
+	t_ray		*ray;
 }				t_game;
 
 /* print_data.c */
@@ -120,5 +141,7 @@ void	init_rgb(t_game *game);
 /* init_map.c */
 void	parse_map(t_game *game);
 void	create_map_copy(t_game **game);
+/* init_graphics.c */
+void	init_graphics(t_game **game);
 
 #endif

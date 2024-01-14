@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:13:39 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/13 13:25:13 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:26:45 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ static void	print_maps(t_game *game)
 	printf(" ---------------------- \n");
 	printf("map_x = \033[1;35m%zu\n" RST, game->map_x);
 	printf("map_y = \033[1;35m%zu\n" RST, game->map_y);
+	printf(" ---------------------- \n");
+	printf("player->pos_x = \033[1;36m%f\n" RST, game->player->pos_x);
+	printf("player->pos_y = \033[1;36m%f\n" RST, game->player->pos_y);
+	printf("player->orientation = \033[1;36m%f\n" RST, game->player->orientation);
 }
 
 void	print_data(t_game *game)
