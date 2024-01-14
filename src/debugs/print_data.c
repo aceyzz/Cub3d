@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:13:39 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 10:26:45 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:53:27 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ static void	print_fileinfos(t_game *game)
 	printf("file_tab =\n");
 	while (game->file_tab[++i])
 		printf("ligne %d:\t\033[1;33m%s|\n" RST, i, game->file_tab[i]);
+	printf(" ---------------------- \n");
+	printf("\n\033[1;31mPRINT MAPS:\n" RST);
+	i = -1;
+	printf("map =\n");
+	while (game->map[++i])
+		printf("ligne %d:\t\033[1;32m%s|\n" RST, i, game->map[i]);
+	printf(" ---------------------- \n");
+	i = -1;
+	printf("map_copy =\n");
+	while (game->map_copy[++i])
+		printf("ligne %d:\t\033[1;33m%s|\n" RST, i, game->map_copy[i]);
+	printf(" ---------------------- \n");
+	printf("map_x = \033[1;35m%zu\n" RST, game->map_x);
+	printf("map_y = \033[1;35m%zu\n" RST, game->map_y);
 	printf(" ---------------------- \n");
 }
 
@@ -50,26 +64,19 @@ static void	print_settings(t_game *game)
 	printf(" ---------------------- \n");
 }
 
-static void	print_maps(t_game *game)
+static void	print_player_rays(t_game *game)
 {
-	int	i;
-
-	i = -1;
-	printf("map =\n");
-	while (game->map[++i])
-		printf("ligne %d:\t\033[1;32m%s|\n" RST, i, game->map[i]);
-	printf(" ---------------------- \n");
-	i = -1;
-	printf("map_copy =\n");
-	while (game->map_copy[++i])
-		printf("ligne %d:\t\033[1;33m%s|\n" RST, i, game->map_copy[i]);
-	printf(" ---------------------- \n");
-	printf("map_x = \033[1;35m%zu\n" RST, game->map_x);
-	printf("map_y = \033[1;35m%zu\n" RST, game->map_y);
-	printf(" ---------------------- \n");
 	printf("player->pos_x = \033[1;36m%f\n" RST, game->player->pos_x);
 	printf("player->pos_y = \033[1;36m%f\n" RST, game->player->pos_y);
-	printf("player->orientation = \033[1;36m%f\n" RST, game->player->orientation);
+	printf("player->orientation = \033[1;36m%f\n" RST,
+		game->player->orientation);
+	printf("\n\033[1;31mPRINT RAYS:\n" RST);
+	printf("ray->pos_x = \033[1;36m%f\n" RST, game->ray->pos_x);
+	printf("ray->pos_y = \033[1;36m%f\n" RST, game->ray->pos_y);
+	printf("ray->dir_x = \033[1;36m%f\n" RST, game->ray->dir_x);
+	printf("ray->dir_y = \033[1;36m%f\n" RST, game->ray->dir_y);
+	printf("ray->plane_x = \033[1;36m%f\n" RST, game->ray->plane_x);
+	printf("ray->plane_y = \033[1;36m%f\n" RST, game->ray->plane_y);
 }
 
 void	print_data(t_game *game)
@@ -78,6 +85,6 @@ void	print_data(t_game *game)
 	print_fileinfos(game);
 	printf("\n\033[1;31mPRINT SETTINGS:\n" RST);
 	print_settings(game);
-	printf("\n\033[1;31mPRINT MAPS:\n" RST);
-	print_maps(game);
+	printf("\n\033[1;31mPRINT PLAYER:\n" RST);
+	print_player_rays(game);
 }

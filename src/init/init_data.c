@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 10:38:33 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:39:01 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void	init_data(t_game **game, char **argv)
 	parse_settings(game);
 	parse_map(*game);
 	init_player(game);
-	// init_rays(game); TODO 
+	init_rays(game);
 }
