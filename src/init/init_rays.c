@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:39:38 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 10:46:09 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:55:47 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	init_rays(t_game **game)
 {
 	(*game)->ray = malloc(sizeof(t_ray));
 	if (!(*game)->ray)
-		errmsg("Malloc error", true, *game);
+		errmsg("Malloc error (t_ray)", true, *game);
 	init_ray_position(*game);
 	init_ray_orientation_ns(*game);
 	init_ray_orientation_ew(*game);
