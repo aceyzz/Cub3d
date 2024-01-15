@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:38:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 11:00:34 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:25:21 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static void	move_backward(t_game *game)
 		game->player->pos_x = new_x;
 		game->player->pos_y = new_y;
 	}
-
 }
 
 static void	move_left(t_game *game)
