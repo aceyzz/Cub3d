@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 11:02:55 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 10:31:13 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:11:09 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	init_mlx(t_game *game)
 	mlx_loop_hook(game->mlx->mlx, main_game, game);
 	mlx_hook(game->mlx->win, 2, 1L << 0, keypress, game);
 	mlx_hook(game->mlx->win, 17, 0L, close_window, game);
+	print_data(game);
 	mlx_loop(game->mlx->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:13:39 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 10:01:10 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:17:59 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,5 @@ void	print_data(t_game *game)
 	print_fileinfos(game);
 	print_settings_player(game);
 	print_rays(game);
+	printf(" --------------- \n\n");
 }

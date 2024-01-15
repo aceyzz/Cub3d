@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 11:08:38 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:13:16 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,5 +156,7 @@ int		close_window(t_game *game);
 void	move_player(int keycode, t_game *game);
 /* move_utils.c */
 bool	collision_with_wall(t_game *game, double new_x, double new_y);
+/* handle_rota.c */
+void	rotate_player(int keycode, t_game *game);
 
 #endif

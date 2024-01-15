@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/13 19:20:43 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/15 11:14:18 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ INC_DIR = inc/
 SRC		= $(wildcard $(SRC_DIR)checks/*.c) \
 			$(wildcard $(SRC_DIR)cleaners/*.c) \
 			$(wildcard $(SRC_DIR)debugs/*.c) \
+			$(wildcard $(SRC_DIR)game/*.c) \
 			$(wildcard $(SRC_DIR)init/*.c) \
 			$(wildcard $(SRC_DIR)main/*.c)
 OBJ		= $(SRC:.c=.o)
