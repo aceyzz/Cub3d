@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 09:58:12 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:31:01 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ int	main(int argc, char **argv)
 	init_data(&game, argv);
 	print_data(game);
 	init_mlx(game);
+	mlx_loop_hook(game->mlx->mlx, main_game, game);
+	mlx_hook(game->mlx->win, 2, 1L << 0, keypress, game);
+	mlx_hook(game->mlx->win, 17, 0L, close_window, game);
+	mlx_loop(game->mlx->mlx);
 	exit_game(game);
 	return (0);
 }
-
-/*
-
-	launch the game after print_data (debug)
-
-*/
