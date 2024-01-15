@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:09:43 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 11:26:19 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:32:11 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int	main_game(t_game *game)
 }
 
 /*
-
+	-- MAINTENANT --
 	Mettre a jour l'etat actuel du jeu
 	Calcul du raycasting
 	Rendu de la frame
 	Gestion de la frame
-
 */
