@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   handle_rota.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 09:58:12 by cedmulle         ###   ########.fr       */
+/*   Created: 2024/01/15 10:39:16 by cedmulle          #+#    #+#             */
+/*   Updated: 2024/01/15 11:06:07 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int	main(int argc, char **argv)
+void	rotate_player(int keycode, t_game *game)
 {
-	t_game	*game;
-
-	check_args(argc, argv);
-	init_data(&game, argv);
-	print_data(game);
-	init_mlx(game);
-	exit_game(game);
-	return (0);
+	if (keycode == K_LEFT)
+	{
+		game->player->orientation += ROTA_SPEED;
+		if (game->player->orientation > 2 * M_PI)
+			game->player->orientation -= 2 * M_PI;
+	}
+	if (keycode == K_RIGHT)
+	{
+		game->player->orientation -= ROTA_SPEED;
+		if (game->player->orientation < 0)
+			game->player->orientation += 2 * M_PI;
+	}
 }
-
-/*
-
-	launch the game after print_data (debug)
-
-*/

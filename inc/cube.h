@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 11:22:07 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:08:38 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,5 +147,14 @@ void	init_player(t_game **game);
 void	init_rays(t_game **game);
 /* init_mlx.c */
 void	init_mlx(t_game *game);
+/* main_game.c */
+int		main_game(t_game *game);
+/* keypress.c */
+int		keypress(int keycode, t_game *game);
+int		close_window(t_game *game);
+/* handle_move.c */
+void	move_player(int keycode, t_game *game);
+/* move_utils.c */
+bool	collision_with_wall(t_game *game, double new_x, double new_y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:13:39 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 10:55:16 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:01:10 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	print_fileinfos(t_game *game)
 	printf(" ---------------------- \n");
 }
 
-static void	print_settings(t_game *game)
+static void	print_settings_player(t_game *game)
 {
 	int	i;
 
@@ -62,16 +62,15 @@ static void	print_settings(t_game *game)
 		printf("\tsettings->cl_rgb[%d] = \033[1;34m%d\033[0;m\n", i,
 			game->settings->cl_rgb[i]);
 	}
-	printf(" ---------------------- \n");
-}
-
-static void	print_player_rays(t_game *game)
-{
-	printf("\n\033[1;31mPRINT PLAYER:\n" RST);
+	printf(" ---------------------- \n\n\033[1;31mPRINT PLAYER:\n" RST);
 	printf("player->pos_x = \033[1;36m%f\n" RST, game->player->pos_x);
 	printf("player->pos_y = \033[1;36m%f\n" RST, game->player->pos_y);
 	printf("player->orientation = \033[1;36m%f\n" RST,
 		game->player->orientation);
+}
+
+static void	print_rays(t_game *game)
+{
 	printf("\n\033[1;31mPRINT RAYS:\n" RST);
 	printf("ray->pos_x = \033[1;36m%f\n" RST, game->ray->pos_x);
 	printf("ray->pos_y = \033[1;36m%f\n" RST, game->ray->pos_y);
@@ -85,6 +84,6 @@ void	print_data(t_game *game)
 {
 	printf("\n\033[1;31mPRINT FILE INFO:\n" RST);
 	print_fileinfos(game);
-	print_settings(game);
-	print_player_rays(game);
+	print_settings_player(game);
+	print_rays(game);
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   keypress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 09:58:12 by cedmulle         ###   ########.fr       */
+/*   Created: 2024/01/15 10:31:01 by cedmulle          #+#    #+#             */
+/*   Updated: 2024/01/15 11:08:08 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int	main(int argc, char **argv)
+int	keypress(int keycode, t_game *game)
 {
-	t_game	*game;
-
-	check_args(argc, argv);
-	init_data(&game, argv);
-	print_data(game);
-	init_mlx(game);
-	exit_game(game);
+	if (keycode == K_ESC)
+		exit_game(game);
+	if (keycode == K_W || keycode == K_A || keycode == K_S || keycode == K_D)
+		move_player(keycode, game);
+	if (keycode == K_LEFT || keycode == K_RIGHT)
+		rotate_player(keycode, game);
 	return (0);
 }
 
-/*
-
-	launch the game after print_data (debug)
-
-*/
+int	close_window(t_game *game)
+{
+	exit_game(game);
+	return (0);
+}

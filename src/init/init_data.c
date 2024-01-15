@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 10:39:01 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:05:23 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	parse_settings(t_game **game)
 void	init_data(t_game **game, char **argv)
 {
 	*game = malloc(sizeof(t_game));
-	if (!game)
+	if (!game || !*game)
 		errmsg("Malloc error", false, *game);
 	(*game)->settings = malloc(sizeof(t_settings));
 	if (!(*game)->settings)
