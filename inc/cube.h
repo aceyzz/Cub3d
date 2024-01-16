@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/16 16:10:21 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:38:34 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ typedef struct s_player
 {
 	double	pos_x;
 	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
 	double	orientation;
 }			t_player;
 
@@ -67,6 +71,16 @@ typedef struct s_ray
 	double	plane_x;
 	double	plane_y;
 	double	angle;
+	double	delta_x;
+	double	delta_y;
+	double	side_x;
+	double	side_y;
+	double	dist;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		side;
 }			t_ray;
 
 typedef struct s_mlx
