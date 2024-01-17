@@ -6,30 +6,46 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:11:50 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/14 10:38:19 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/17 20:01:14 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void	init_player_position(t_game *game, int i, int k)
-{
-	game->player->pos_x = k + 0.5;
-	game->player->pos_y = i + 0.5;
-}
-
-static void	init_player_orientation(t_game *game, int i, int k)
+static void	init_player_ns(t_game *game, int i, int k)
 {
 	if (game->map[i][k] == 'N')
-		game->player->orientation = 3 * M_PI / 2;
+	{
+		game->player->dir_x = 0;
+		game->player->dir_y = -1;
+		game->player->plane_x = 0.66;
+		game->player->plane_y = 0;
+	}
 	else if (game->map[i][k] == 'S')
-		game->player->orientation = M_PI / 2;
-	else if (game->map[i][k] == 'E')
-		game->player->orientation = 0;
+	{
+		game->player->dir_x = 0;
+		game->player->dir_y = 1;
+		game->player->plane_x = -0.66;
+		game->player->plane_y = 0;
+	}
+}
+
+static void	init_player_ew(t_game *game, int i, int k)
+{
+	if (game->map[i][k] == 'E')
+	{
+		game->player->dir_x = 1;
+		game->player->dir_y = 0;
+		game->player->plane_x = 0;
+		game->player->plane_y = 0.66;
+	}
 	else if (game->map[i][k] == 'W')
-		game->player->orientation = M_PI;
-	else
-		errmsg("Orientation du joueur non trouvée", true, game);
+	{
+		game->player->dir_x = -1;
+		game->player->dir_y = 0;
+		game->player->plane_x = 0;
+		game->player->plane_y = -0.66;
+	}
 }
 
 static void	init_player_info(t_game *game)
@@ -46,8 +62,10 @@ static void	init_player_info(t_game *game)
 			if (game->map[i][k] == 'N' || game->map[i][k] == 'S'
 				|| game->map[i][k] == 'E' || game->map[i][k] == 'W')
 			{
-				init_player_position(game, i, k);
-				init_player_orientation(game, i, k);
+				game->player->pos_x = k + 0.5;
+				game->player->pos_y = i + 0.5;
+				init_player_ns(game, i, k);
+				init_player_ew(game, i, k);
 				return ;
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:13:39 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 11:17:59 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:50:29 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ static void	print_settings_player(t_game *game)
 	printf(" ---------------------- \n\n\033[1;31mPRINT PLAYER:\n" RST);
 	printf("player->pos_x = \033[1;36m%f\n" RST, game->player->pos_x);
 	printf("player->pos_y = \033[1;36m%f\n" RST, game->player->pos_y);
-	printf("player->orientation = \033[1;36m%f\n" RST,
-		game->player->orientation);
+	printf("player->dir_x = \033[1;35m%f\n" RST, game->player->dir_x);
+	printf("player->dir_y = \033[1;35m%f\n" RST, game->player->dir_y);
 }
 
 static void	print_rays(t_game *game)
@@ -76,8 +76,6 @@ static void	print_rays(t_game *game)
 	printf("ray->pos_y = \033[1;36m%f\n" RST, game->ray->pos_y);
 	printf("ray->dir_x = \033[1;36m%f\n" RST, game->ray->dir_x);
 	printf("ray->dir_y = \033[1;36m%f\n" RST, game->ray->dir_y);
-	printf("ray->plane_x = \033[1;36m%f\n" RST, game->ray->plane_x);
-	printf("ray->plane_y = \033[1;36m%f\n" RST, game->ray->plane_y);
 }
 
 void	print_data(t_game *game)

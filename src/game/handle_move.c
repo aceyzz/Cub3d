@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:38:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/15 11:25:21 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:49:20 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	move_forward(t_game *game)
 	double	new_x;
 	double	new_y;
 
-	new_x = game->player->pos_x + MOVE_SPEED * cos(game->player->orientation);
-	new_y = game->player->pos_y + MOVE_SPEED * sin(game->player->orientation);
+	new_x = game->player->pos_x + MOVE_SPEED * game->player->dir_x;
+	new_y = game->player->pos_y + MOVE_SPEED * game->player->dir_y;
 	if (!collision_with_wall(game, new_x, new_y))
 	{
 		game->player->pos_x = new_x;
@@ -31,8 +31,8 @@ static void	move_backward(t_game *game)
 	double	new_x;
 	double	new_y;
 
-	new_x = game->player->pos_x - MOVE_SPEED * cos(game->player->orientation);
-	new_y = game->player->pos_y - MOVE_SPEED * sin(game->player->orientation);
+	new_x = game->player->pos_x - MOVE_SPEED * game->player->dir_x;
+	new_y = game->player->pos_y - MOVE_SPEED * game->player->dir_y;
 	if (!collision_with_wall(game, new_x, new_y))
 	{
 		game->player->pos_x = new_x;
@@ -45,10 +45,8 @@ static void	move_left(t_game *game)
 	double	new_x;
 	double	new_y;
 
-	new_x = game->player->pos_x - MOVE_SPEED * cos(game->player->orientation
-			+ M_PI_2);
-	new_y = game->player->pos_y - MOVE_SPEED * sin(game->player->orientation
-			+ M_PI_2);
+	new_x = game->player->pos_x - MOVE_SPEED * game->player->plane_x;
+	new_y = game->player->pos_y - MOVE_SPEED * game->player->plane_y;
 	if (!collision_with_wall(game, new_x, new_y))
 	{
 		game->player->pos_x = new_x;
@@ -61,10 +59,8 @@ static void	move_right(t_game *game)
 	double	new_x;
 	double	new_y;
 
-	new_x = game->player->pos_x + MOVE_SPEED * cos(game->player->orientation
-			+ M_PI_2);
-	new_y = game->player->pos_y + MOVE_SPEED * sin(game->player->orientation
-			+ M_PI_2);
+	new_x = game->player->pos_x + MOVE_SPEED * game->player->plane_x;
+	new_y = game->player->pos_y + MOVE_SPEED * game->player->plane_y;
 	if (!collision_with_wall(game, new_x, new_y))
 	{
 		game->player->pos_x = new_x;
