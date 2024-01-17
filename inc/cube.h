@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/17 19:48:25 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/17 21:30:44 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 
 # define X_RES 1920
 # define Y_RES 1080
+
+# define MINIMAP_SCALE 10
 
 # define K_ESC 53
 # define K_W 13
@@ -86,6 +88,11 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		len;
+	int		endian;
 	void	*fl;
 	void	*cl;
 	void	*no;
@@ -171,5 +178,9 @@ void	move_player(int keycode, t_game *game);
 bool	collision_with_wall(t_game *game, double new_x, double new_y);
 /* handle_rota.c */
 void	rotate_player(int keycode, t_game *game);
+/* draw_hud.c */
+void	draw_hud(t_game *game);
+/* draw_utils.c */
+void	my_pixel_put(t_game *game, int x, int y, int color);
 
 #endif

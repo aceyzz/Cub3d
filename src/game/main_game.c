@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:09:43 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/16 17:39:08 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/17 20:57:53 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	main_game(t_game *game)
 {
-	(void)game;
+	draw_hud(game);
 	return (0);
 }

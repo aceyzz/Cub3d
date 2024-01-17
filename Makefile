@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/16 17:38:29 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/17 20:18:36 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ INC_DIR = inc/
 SRC		= $(wildcard $(SRC_DIR)checks/*.c) \
 			$(wildcard $(SRC_DIR)cleaners/*.c) \
 			$(wildcard $(SRC_DIR)debugs/*.c) \
+			$(wildcard $(SRC_DIR)draw/*.c) \
 			$(wildcard $(SRC_DIR)game/*.c) \
 			$(wildcard $(SRC_DIR)init/*.c) \
 			$(wildcard $(SRC_DIR)main/*.c)
