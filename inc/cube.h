@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/17 21:30:44 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:57:30 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 
 # define FOV 60
 # define TILE_SIZE 64
+# define TEX_X 50
+# define TEX_Y 50
 
 typedef struct s_player
 {
@@ -74,6 +76,7 @@ typedef struct s_ray
 	double	delta_y;
 	double	side_x;
 	double	side_y;
+	double	perp_wall_dist;
 	int		map_x;
 	int		map_y;
 	int		step_x;
@@ -160,6 +163,8 @@ bool	is_empty_line(char *line);
 void	init_data(t_game **game, char **argv);
 /* init_rgb.c */
 void	init_rgb(t_game *game);
+/* init_textures.c */
+void	init_textures(t_game *game);
 /* init_map.c */
 void	parse_map(t_game *game);
 void	create_map_copy(t_game **game);
@@ -180,6 +185,8 @@ bool	collision_with_wall(t_game *game, double new_x, double new_y);
 void	rotate_player(int keycode, t_game *game);
 /* draw_hud.c */
 void	draw_hud(t_game *game);
+/* minimap.c */
+void	draw_player_minimap(t_game *game);
 /* draw_utils.c */
 void	my_pixel_put(t_game *game, int x, int y, int color);
 

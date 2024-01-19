@@ -6,13 +6,13 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:48 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/17 21:30:25 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:57:47 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	draw_top_bottom_border(t_game *game)
+static void	draw_top_bottom_border(t_game *game)
 {
 	int	x;
 	int	y;
@@ -33,7 +33,7 @@ void	draw_top_bottom_border(t_game *game)
 	}
 }
 
-void	draw_left_right_border(t_game *game)
+static void	draw_left_right_border(t_game *game)
 {
 	int	x;
 	int	y;
@@ -54,7 +54,7 @@ void	draw_left_right_border(t_game *game)
 	}
 }
 
-void	draw_minimap_square(t_game *game, size_t x, size_t y, int color)
+static void	draw_minimap_square(t_game *game, size_t x, size_t y, int color)
 {
 	size_t	minimap_x;
 	size_t	minimap_y;
@@ -76,7 +76,7 @@ void	draw_minimap_square(t_game *game, size_t x, size_t y, int color)
 	}
 }
 
-void	draw_minimap(t_game *game)
+static void	draw_minimap(t_game *game)
 {
 	size_t	x;
 	size_t	y;
@@ -90,8 +90,6 @@ void	draw_minimap(t_game *game)
 		{
 			if (game->map[y][x] == '1')
 				draw_minimap_square(game, x, y, 0x00000066);
-			else if (game->map[y][x] != ' ' && game->map[y][x] != '0')
-				draw_minimap_square(game, x, y, 0x0000FFFF);
 			else
 				draw_minimap_square(game, x, y, 0x00333333);
 			y++;
@@ -108,6 +106,7 @@ void	draw_hud(t_game *game)
 	draw_top_bottom_border(game);
 	draw_left_right_border(game);
 	draw_minimap(game);
+	draw_player_minimap(game);
 	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->mlx->img, 0,
 		0);
 }
