@@ -6,13 +6,25 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:46:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/11 17:11:34 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/20 17:54:55 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void	check_rgb_values(t_game *game)
+static void	check_rgb_value_cl(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 3)
+	{
+		if (game->settings->cl_rgb[i] < 0 || game->settings->cl_rgb[i] > 255)
+			errmsg("Valeur RGB invalide", true, game);
+	}
+}
+
+static void	check_rgb_value_fl(t_game *game)
 {
 	int	i;
 
@@ -20,8 +32,6 @@ static void	check_rgb_values(t_game *game)
 	while (++i < 3)
 	{
 		if (game->settings->fl_rgb[i] < 0 || game->settings->fl_rgb[i] > 255)
-			errmsg("Valeur RGB invalide", true, game);
-		if (game->settings->cl_rgb[i] < 0 || game->settings->cl_rgb[i] > 255)
 			errmsg("Valeur RGB invalide", true, game);
 	}
 }
@@ -35,6 +45,7 @@ void	init_rgb(t_game *game)
 					',') + 1);
 		game->settings->fl_rgb[2] = ft_atoi(ft_strrchr(game->settings->floor,
 					',') + 1);
+		check_rgb_value_fl(game);
 	}
 	if (game->settings->cl_ispath == false)
 	{
@@ -43,6 +54,6 @@ void	init_rgb(t_game *game)
 					',') + 1);
 		game->settings->cl_rgb[2] = ft_atoi(ft_strrchr(game->settings->ceil,
 					',') + 1);
+		check_rgb_value_cl(game);
 	}
-	check_rgb_values(game);
 }
