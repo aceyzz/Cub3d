@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/19 11:57:30 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 12:54:39 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,60 @@ typedef struct s_mlx
 	void	*we;
 }			t_mlx;
 
+typedef struct s_north
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		len;
+	int		endian;
+}			t_north;
+
+typedef struct s_south
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		len;
+	int		endian;
+}			t_south;
+
+typedef struct s_east
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		len;
+	int		endian;
+}			t_east;
+
+typedef struct s_west
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		len;
+	int		endian;
+}			t_west;
+
+typedef struct s_floor
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		len;
+	int		endian;
+}			t_floor;
+
+typedef struct s_ceil
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		len;
+	int		endian;
+}			t_ceil;
+
 typedef struct s_settings
 {
 	char	*north;
@@ -133,6 +187,12 @@ typedef struct s_game
 	t_mlx		*mlx;
 	t_player	*player;
 	t_ray		ray[X_RES];
+	t_north		*north;
+	t_south		*south;
+	t_east		*east;
+	t_west		*west;
+	t_floor		*floor;
+	t_ceil		*ceil;
 }				t_game;
 
 /* print_data.c */
