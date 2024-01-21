@@ -6,11 +6,37 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:09:17 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/19 11:54:07 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:29:02 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+static void	draw_player_line(t_game *game)
+{
+	t_minimap	minimap;
+	int			i;
+
+	minimap.line_x = 30 + game->player->pos_x * MINIMAP_SCALE;
+	minimap.line_y = Y_RES - 30 - (game->map_y * MINIMAP_SCALE)
+		+ game->player->pos_y * MINIMAP_SCALE;
+	minimap.angle = atan2(game->player->dir_y, game->player->dir_x);
+	minimap.radius = 15;
+	minimap.color = 0x00FFFF;
+	i = 0;
+	while (i < 10)
+	{
+		minimap.line_x += cos(minimap.angle) * minimap.radius;
+		minimap.line_y += sin(minimap.angle) * minimap.radius;
+		if (minimap.line_x < 30 || minimap.line_x >= 30 + game->map_x
+			* MINIMAP_SCALE || minimap.line_y < Y_RES - 30 - game->map_y
+			* MINIMAP_SCALE || minimap.line_y >= Y_RES - 30)
+			break ;
+		my_pixel_put(game, (int)minimap.line_x, (int)minimap.line_y,
+			minimap.color);
+		i++;
+	}
+}
 
 void	draw_player_minimap(t_game *game)
 {
@@ -38,4 +64,5 @@ void	draw_player_minimap(t_game *game)
 		}
 		i += 0.1;
 	}
+	draw_player_line(game);
 }

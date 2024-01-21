@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 13:23:20 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:28:23 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,15 @@ typedef struct s_settings
 	int		fl_rgb[3];
 	int		cl_rgb[3];
 }			t_settings;
+
+typedef struct s_minimap
+{
+	double	line_x;
+	double	line_y;
+	double	angle;
+	double	radius;
+	int		color;
+}			t_minimap;
 
 typedef struct s_game
 {
