@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 13:13:42 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 13:23:20 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,5 +243,8 @@ void	draw_hud(t_game *game);
 void	draw_player_minimap(t_game *game);
 /* draw_utils.c */
 void	my_pixel_put(t_game *game, int x, int y, int color);
+int		rgb_to_mlx(int rgb[3]);
+
+void	draw_floor_ceiling(t_game *game);
 
 #endif

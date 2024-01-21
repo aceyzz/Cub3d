@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:48 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/19 11:57:47 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 13:23:40 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,4 @@ void	draw_hud(t_game *game)
 	draw_left_right_border(game);
 	draw_minimap(game);
 	draw_player_minimap(game);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->mlx->img, 0,
-		0);
 }
