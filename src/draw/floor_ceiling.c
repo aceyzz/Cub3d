@@ -6,13 +6,13 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 13:17:55 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 13:23:14 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 13:25:34 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	draw_floor(t_game *game)
+static void	draw_floor(t_game *game)
 {
 	int	x;
 	int	y;
@@ -26,7 +26,7 @@ void	draw_floor(t_game *game)
 	}
 }
 
-void	draw_ceiling(t_game *game)
+static void	draw_ceiling(t_game *game)
 {
 	int	x;
 	int	y;
