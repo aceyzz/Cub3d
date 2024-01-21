@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 12:54:39 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 13:13:42 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,6 @@ typedef struct s_mlx
 	int		bpp;
 	int		len;
 	int		endian;
-	void	*fl;
-	void	*cl;
-	void	*no;
-	void	*so;
-	void	*ea;
-	void	*we;
 }			t_mlx;
 
 typedef struct s_north
