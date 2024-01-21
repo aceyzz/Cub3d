@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/19 11:05:17 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/21 17:43:43 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC		= $(wildcard $(SRC_DIR)checks/*.c) \
 			$(wildcard $(SRC_DIR)draw/*.c) \
 			$(wildcard $(SRC_DIR)game/*.c) \
 			$(wildcard $(SRC_DIR)init/*.c) \
-			$(wildcard $(SRC_DIR)main/*.c)
+			$(wildcard $(SRC_DIR)main/*.c) \
+			$(wildcard $(SRC_DIR)raycast/*.c)
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror

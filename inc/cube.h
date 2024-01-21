@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 14:28:23 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:10:17 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 
-# define ROTA_SPEED 0.1
-# define MOVE_SPEED 0.1
+# define ROTA_SPEED 0.12
+# define MOVE_SPEED 0.12
 
 # define FOV 60
 # define TILE_SIZE 64
@@ -77,6 +77,7 @@ typedef struct s_ray
 	double	side_x;
 	double	side_y;
 	double	perp_wall_dist;
+	int		hit;
 	int		map_x;
 	int		map_y;
 	int		step_x;
@@ -250,10 +251,17 @@ void	rotate_player(int keycode, t_game *game);
 void	draw_hud(t_game *game);
 /* minimap.c */
 void	draw_player_minimap(t_game *game);
+/* floor_ceiling.c */
+void	draw_floor_ceiling(t_game *game);
 /* draw_utils.c */
 void	my_pixel_put(t_game *game, int x, int y, int color);
 int		rgb_to_mlx(int rgb[3]);
-
-void	draw_floor_ceiling(t_game *game);
+/* ray_utils.c */
+void	init_rays(t_game *game, t_ray *ray, int x);
+void	calculate_line_height(t_game *game, t_ray *ray);
+void	set_step(t_game *game, t_ray *ray);
+void	set_draw_range(t_ray *ray);
+/* raycasting.c */
+void	raycasting(t_game *game);
 
 #endif

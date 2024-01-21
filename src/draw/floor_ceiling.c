@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 13:17:55 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 14:15:27 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:06:02 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,6 @@ static void	draw_ceiling(t_game *game)
 
 void	draw_floor_ceiling(t_game *game)
 {
-	if (!game->settings->fl_ispath)
-		draw_floor(game);
-	// else
-	// 	render_floor(game);
-	if (!game->settings->cl_ispath)
-		draw_ceiling(game);
-	// else
-	// 	render_ceiling(game);
+	draw_floor(game);
+	draw_ceiling(game);
 }
