@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 19:10:17 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:10:08 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # define MOVE_SPEED 0.12
 
 # define FOV 60
-# define TILE_SIZE 64
+# define TILE_SIZE 50
 # define TEX_X 50
 # define TEX_Y 50
 
