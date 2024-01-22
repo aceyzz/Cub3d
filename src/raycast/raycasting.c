@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:43:15 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 19:08:59 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:37:24 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ void	draw_wall(t_game *game, t_ray *ray, int x)
 {
 	int	y;
 
-	y = -1;
-	y = -1;
-	while (++y < ray->draw_start)
-		my_pixel_put(game, x, y, 0x3A9DF3);
+	y = ray->draw_start;
 	while (++y < ray->draw_end)
 	{
 		if (ray->side == 1)
