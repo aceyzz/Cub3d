@@ -6,24 +6,24 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 09:02:44 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:00:31 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE_H
 # define CUBE_H
 
+# include "libft/libft.h"
+# include "mlx/mlx.h"
+# include <errno.h>
+# include <fcntl.h>
+# include <limits.h>
+# include <math.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <math.h>
-# include <limits.h>
 # include <string.h>
-# include <errno.h>
-# include <stdbool.h>
-# include "mlx/mlx.h"
-# include "libft/libft.h"
+# include <unistd.h>
 
 # define RST "\033[0m"
 # define RED "\033[1;31m"
@@ -47,8 +47,8 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 
-# define ROTA_SPEED 0.05
-# define MOVE_SPEED 0.05
+# define ROTA_SPEED 0.15
+# define MOVE_SPEED 0.15
 
 # define FOV 60
 # define TILE_SIZE 64
@@ -56,143 +56,172 @@
 
 typedef struct s_player
 {
-	double	pos_x;
-	double	pos_y;
-	double	dir_x;
-	double	dir_y;
-	double	plane_x;
-	double	plane_y;
-}			t_player;
+	double		pos_x;
+	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		plane_x;
+	double		plane_y;
+}				t_player;
 
 typedef struct s_ray
 {
-	double	camera_x;
-	double	pos_x;
-	double	pos_y;
-	double	dir_x;
-	double	dir_y;
-	double	delta_x;
-	double	delta_y;
-	double	side_x;
-	double	side_y;
-	double	perp_wall_dist;
-	int		hit;
-	int		map_x;
-	int		map_y;
-	int		step_x;
-	int		step_y;
-	int		side;
-	int		line_height;
-	int		draw_start;
-	int		draw_end;
-}			t_ray;
+	double		camera_x;
+	double		pos_x;
+	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		delta_x;
+	double		delta_y;
+	double		side_x;
+	double		side_y;
+	double		perp_wall_dist;
+	int			hit;
+	int			map_x;
+	int			map_y;
+	int			step_x;
+	int			step_y;
+	int			side;
+	int			line_height;
+	int			draw_start;
+	int			draw_end;
+}				t_ray;
 
 typedef struct s_texture
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}			t_texture;
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			len;
+	int			endian;
+}				t_texture;
+
+typedef struct s_tex_utils
+{
+	double		dist_wall;
+	double		current_dist;
+	double		weight;
+	double		current_floor_x;
+	double		current_floor_y;
+	int			floor_tex_x;
+	int			floor_tex_y;
+	double		current_ceiling_x;
+	double		current_ceiling_y;
+	int			ceiling_tex_x;
+	int			ceiling_tex_y;
+}				t_tex_utils;
+
+typedef struct s_floor_ceiling
+{
+	double		dir_x_a;
+	double		dir_y_a;
+	double		dir_x_b;
+	double		dir_y_b;
+	double		dir_row;
+	double		step_x;
+	double		step_y;
+	double		floor_x;
+	double		floor_y;
+	double		dist_wall;
+}				t_floor_ceiling;
 
 typedef struct s_mlx
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}			t_mlx;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			len;
+	int			endian;
+}				t_mlx;
 
 typedef struct s_north
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}			t_north;
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			len;
+	int			endian;
+}				t_north;
 
 typedef struct s_south
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}			t_south;
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			len;
+	int			endian;
+}				t_south;
 
 typedef struct s_east
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}			t_east;
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			len;
+	int			endian;
+}				t_east;
 
 typedef struct s_west
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}			t_west;
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			len;
+	int			endian;
+}				t_west;
 
 typedef struct s_floor
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}			t_floor;
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			len;
+	int			endian;
+}				t_floor;
 
 typedef struct s_ceil
 {
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		len;
-	int		endian;
-}			t_ceil;
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			len;
+	int			endian;
+}				t_ceil;
 
 typedef struct s_settings
 {
-	char	*north;
-	char	*south;
-	char	*east;
-	char	*west;
-	char	*floor;
-	char	*ceil;
-	bool	fl_ispath;
-	bool	cl_ispath;
-	int		fl_rgb[3];
-	int		cl_rgb[3];
-}			t_settings;
+	char		*north;
+	char		*south;
+	char		*east;
+	char		*west;
+	char		*floor;
+	char		*ceil;
+	bool		fl_ispath;
+	bool		cl_ispath;
+	int			fl_rgb[3];
+	int			cl_rgb[3];
+}				t_settings;
 
 typedef struct s_minimap
 {
-	double	line_x;
-	double	line_y;
-	double	angle;
-	double	radius;
-	int		color;
-}			t_minimap;
+	double		line_x;
+	double		line_y;
+	double		angle;
+	double		radius;
+	int			color;
+}				t_minimap;
 
 typedef struct s_keys
 {
-	bool	w;
-	bool	a;
-	bool	s;
-	bool	d;
-	bool	left;
-	bool	right;
-}			t_keys;
+	bool		w;
+	bool		a;
+	bool		s;
+	bool		d;
+	bool		left;
+	bool		right;
+}				t_keys;
 
 typedef struct s_game
 {
@@ -219,78 +248,81 @@ typedef struct s_game
 }				t_game;
 
 /* print_data.c */
-void	print_data(t_game *game);
+void			print_data(t_game *game);
 /* free.c */
-void	free_ptr(void *ptr);
-void	free_tab(char **tab);
-void	free_data(t_game *game);
+void			free_ptr(void *ptr);
+void			free_tab(char **tab);
+void			free_data(t_game *game);
 /* exit.c */
-void	errmsg(const char *errmsg, bool to_free, t_game *game);
-void	exit_game(t_game *game);
+void			errmsg(const char *errmsg, bool to_free, t_game *game);
+void			exit_game(t_game *game);
 /* check_args.c */
-void	check_args(int argc, char **argv);
-char	*remove_spaces(char *str);
+void			check_args(int argc, char **argv);
+char			*remove_spaces(char *str);
 /* check_settings.c */
-void	check_settings(t_game *game);
+void			check_settings(t_game *game);
 /* check_map.c */
-void	check_map(t_game *game);
+void			check_map(t_game *game);
 /* check_map_equalizer.c */
-void	map_equalizer(t_game *game);
+void			map_equalizer(t_game *game);
 /* check_map_border.c */
-void	check_map_border(t_game *game);
+void			check_map_border(t_game *game);
 /* check_utils.c */
-size_t	size_tab(char **tab);
-int		tab_size(char **tab);
-bool	is_empty_line(char *line);
+size_t			size_tab(char **tab);
+int				tab_size(char **tab);
+bool			is_empty_line(char *line);
 /* init_data.c */
-void	init_data(t_game **game, char **argv);
+void			init_data(t_game **game, char **argv);
 /* init_rgb.c */
-void	init_rgb(t_game *game);
+void			init_rgb(t_game *game);
 /* init_textures.c */
-void	init_textures(t_game *game);
+void			init_textures(t_game *game);
 /* init_map.c */
-void	parse_map(t_game *game);
-void	create_map_copy(t_game **game);
+void			parse_map(t_game *game);
+void			create_map_copy(t_game **game);
 /* init_player.c */
-void	init_player(t_game **game);
+void			init_player(t_game **game);
 /* init_mlx.c */
-void	init_mlx(t_game *game);
+void			init_mlx(t_game *game);
 /* main_game.c */
-int		main_game(t_game *game);
+int				main_game(t_game *game);
 /* keypress.c */
-int		keypress(int keycode, t_game *game);
-int		keyrelease(int keycode, t_game *game);
-int		close_window(t_game *game);
+int				keypress(int keycode, t_game *game);
+int				keyrelease(int keycode, t_game *game);
+int				close_window(t_game *game);
 /* handle_move.c */
-void	move_forward(t_game *game);
-void	move_backward(t_game *game);
-void	move_left(t_game *game);
-void	move_right(t_game *game);
+void			move_forward(t_game *game);
+void			move_backward(t_game *game);
+void			move_left(t_game *game);
+void			move_right(t_game *game);
 /* move_utils.c */
-bool	collision_with_wall(t_game *game, double new_x, double new_y);
+bool			collision_with_wall(t_game *game, double new_x, double new_y);
 /* handle_rota.c */
-void	rotate_left(t_game *game);
-void	rotate_right(t_game *game);
+void			rotate_left(t_game *game);
+void			rotate_right(t_game *game);
 /* draw_hud.c */
-void	draw_hud(t_game *game);
+void			draw_hud(t_game *game);
 /* minimap.c */
-void	draw_player_minimap(t_game *game);
+void			draw_player_minimap(t_game *game);
 /* floor_ceiling.c */
-void	draw_floor_ceiling(t_game *game);
+void			draw_floor_ceiling(t_game *game);
 /* draw_utils.c */
-void	my_pixel_put(t_game *game, int x, int y, int color);
-int		rgb_to_mlx(int rgb[3]);
+void			my_pixel_put(t_game *game, int x, int y, int color);
+int				rgb_to_mlx(int rgb[3]);
 /* ray_utils.c */
-void	init_rays(t_game *game, t_ray *ray, int x);
-void	calculate_line_height(t_game *game, t_ray *ray);
-void	set_step(t_game *game, t_ray *ray);
-void	set_draw_range(t_ray *ray);
-int		handling_hud(int a, int b, char c);
+void			init_rays(t_game *game, t_ray *ray, int x);
+void			calculate_line_height(t_game *game, t_ray *ray);
+void			set_step(t_game *game, t_ray *ray);
+void			set_draw_range(t_ray *ray);
+int				handling_hud(int a, int b, char c);
 /* raycasting.c */
-void	raycasting(t_game *game);
+void			raycasting(t_game *game);
 /* ray_texture.c */
-int		get_texture_color(t_game *game, t_ray *ray, int tex_x, int tex_y);
-int		calculate_tex_x(t_game *game, t_ray *ray);
-int		calculate_tex_y(t_ray *ray, int y);
+int				get_texture_color_fc(t_game *game, char fc, int tex_x,
+					int tex_y);
+int				get_texture_color(t_game *game, t_ray *ray, int tex_x,
+					int tex_y);
+int				calculate_tex_x(t_game *game, t_ray *ray);
+int				calculate_tex_y(t_ray *ray, int y);
 
 #endif

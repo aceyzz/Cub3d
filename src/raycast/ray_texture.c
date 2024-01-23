@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 08:42:02 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 08:48:08 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 09:51:12 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,25 @@ static void	set_textures(t_texture *texture, char *addr, int len, int bpp)
 	texture->addr = addr;
 	texture->len = len;
 	texture->bpp = bpp;
+}
+
+int	get_texture_color_fc(t_game *game, char fc, int tex_x, int tex_y)
+{
+	t_texture	texture;
+	int			index;
+
+	if (fc == 'F')
+		set_textures(&texture, game->floor->addr, game->floor->len,
+			game->floor->bpp);
+	else if (fc == 'C')
+		set_textures(&texture, game->ceil->addr, game->ceil->len,
+			game->ceil->bpp);
+	else
+		return (0);
+	tex_x = fmax(0, fmin(tex_x, TEX_SIZE - 1));
+	tex_y = fmax(0, fmin(tex_y, TEX_SIZE - 1));
+	index = tex_y * texture.len + tex_x * (texture.bpp / 8);
+	return (*(int *)(texture.addr + index));
 }
 
 int	get_texture_color(t_game *game, t_ray *ray, int tex_x, int tex_y)
