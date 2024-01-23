@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:09:17 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 14:37:21 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:02:10 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	draw_player_line(t_game *game)
 		+ game->player->pos_y * MINIMAP_SCALE;
 	minimap.angle = atan2(game->player->dir_y, game->player->dir_x);
 	minimap.radius = 15;
-	minimap.color = 0x00FFFF;
+	minimap.color = 0xFF0000;
 	i = 0;
 	while (i < 10)
 	{
@@ -59,7 +59,7 @@ void	draw_player_minimap(t_game *game)
 						- MINIMAP_SCALE / 2, 2));
 			if (distance <= MINIMAP_SCALE / 4)
 				my_pixel_put(game, (int)(minimap_x + i), (int)(minimap_y + j),
-					0x0000FFFF);
+					0xFF0000);
 			j += 0.1;
 		}
 		i += 0.1;

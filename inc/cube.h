@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 13:58:19 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:46:55 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@
 # define MOVE_SPEED 0.12
 
 # define FOV 60
-# define TILE_SIZE 64
-# define TEX_SIZE 64
+# define TEX_SIZE 128
+
+# define GUN "./img/bonus/p1.xpm"
+# define GUN_X 1244
+# define GUN_Y 700
 
 typedef struct s_player
 {
@@ -337,5 +340,7 @@ int				get_texture_color(t_game *game, t_ray *ray, int tex_x,
 					int tex_y);
 int				calculate_tex_x(t_game *game, t_ray *ray);
 int				calculate_tex_y(t_ray *ray, int y);
+/* bonus.c */
+void			bonus(t_game *game);
 
 #endif

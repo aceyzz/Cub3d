@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:09:43 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 08:09:53 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:41:02 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int	main_game(t_game *game)
 	draw_hud(game);
 	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->mlx->img, 0,
 		0);
+	bonus(game);
+	mlx_mouse_hide();
 	return (0);
 }
