@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:46:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 19:08:33 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 09:02:45 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,23 @@ void	set_step(t_game *game, t_ray *ray)
 		ray->side_y = (ray->map_y + 1.0 - game->player->pos_y) * ray->delta_y;
 	}
 	set_draw_range(ray);
+}
+
+int	handling_hud(int a, int b, char c)
+{
+	if (c == 'm')
+	{
+		if (a < b)
+			return (b);
+		else
+			return (a);
+	}
+	else if (c == 'l')
+	{
+		if (a < b)
+			return (a);
+		else
+			return (b);
+	}
+	return (0);
 }

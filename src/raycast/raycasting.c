@@ -6,13 +6,13 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:43:15 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 08:42:43 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 09:02:26 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	perform_dda(t_game *game, t_ray *ray)
+static void	perform_dda(t_game *game, t_ray *ray)
 {
 	while (ray->hit == 0)
 	{
@@ -39,15 +39,17 @@ void	perform_dda(t_game *game, t_ray *ray)
 					- ray->step_y) / 2) / ray->dir_y;
 }
 
-void	draw_wall(t_game *game, t_ray *ray, int x)
+static void	draw_wall(t_game *game, t_ray *ray, int x)
 {
 	int				y;
 	unsigned int	color;
 	int				tex_x;
 	int				tex_y;
+	int				end_y;
 
-	y = ray->draw_start;
-	while (y < ray->draw_end)
+	y = handling_hud(ray->draw_start, 30, 'm');
+	end_y = handling_hud(ray->draw_end, Y_RES - 30, 'l');
+	while (y < end_y)
 	{
 		tex_y = calculate_tex_y(ray, y);
 		tex_x = calculate_tex_x(game, ray);

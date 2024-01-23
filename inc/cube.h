@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 08:48:23 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 09:02:44 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,6 +285,7 @@ void	init_rays(t_game *game, t_ray *ray, int x);
 void	calculate_line_height(t_game *game, t_ray *ray);
 void	set_step(t_game *game, t_ray *ray);
 void	set_draw_range(t_ray *ray);
+int		handling_hud(int a, int b, char c);
 /* raycasting.c */
 void	raycasting(t_game *game);
 /* ray_texture.c */
