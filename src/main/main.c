@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 19:02:04 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 07:24:28 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	main(int argc, char **argv)
 	init_textures(game);
 	draw_hud(game);
 	mlx_loop_hook(game->mlx->mlx, main_game, game);
-	mlx_hook(game->mlx->win, 2, 1L << 0, keypress, game);
+	mlx_hook(game->mlx->win, 2, 1L << 0, &keypress, game);
+	mlx_hook(game->mlx->win, 3, 1L << 1, &keyrelease, game);
 	mlx_hook(game->mlx->win, 17, 0L, close_window, game);
 	mlx_loop(game->mlx->mlx);
 	exit_game(game);

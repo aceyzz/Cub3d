@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/22 15:10:08 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 07:52:08 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 
-# define ROTA_SPEED 0.12
-# define MOVE_SPEED 0.12
+# define ROTA_SPEED 0.05
+# define MOVE_SPEED 0.05
 
 # define FOV 60
 # define TILE_SIZE 50
@@ -176,6 +176,16 @@ typedef struct s_minimap
 	int		color;
 }			t_minimap;
 
+typedef struct s_keys
+{
+	bool	w;
+	bool	a;
+	bool	s;
+	bool	d;
+	bool	left;
+	bool	right;
+}			t_keys;
+
 typedef struct s_game
 {
 	int			fd;
@@ -197,6 +207,7 @@ typedef struct s_game
 	t_west		*west;
 	t_floor		*floor;
 	t_ceil		*ceil;
+	t_keys		*keys;
 }				t_game;
 
 /* print_data.c */
@@ -240,13 +251,18 @@ void	init_mlx(t_game *game);
 int		main_game(t_game *game);
 /* keypress.c */
 int		keypress(int keycode, t_game *game);
+int		keyrelease(int keycode, t_game *game);
 int		close_window(t_game *game);
 /* handle_move.c */
-void	move_player(int keycode, t_game *game);
+void	move_forward(t_game *game);
+void	move_backward(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
 /* move_utils.c */
 bool	collision_with_wall(t_game *game, double new_x, double new_y);
 /* handle_rota.c */
-void	rotate_player(int keycode, t_game *game);
+void	rotate_left(t_game *game);
+void	rotate_right(t_game *game);
 /* draw_hud.c */
 void	draw_hud(t_game *game);
 /* minimap.c */

@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:38:20 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 13:02:48 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 07:27:51 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	free_data(t_game *game)
 	free_ptr(game->west);
 	free_ptr(game->floor);
 	free_ptr(game->ceil);
+	free_ptr(game->keys);
 	free_ptr(game->mlx);
 	free_ptr(game);
 }

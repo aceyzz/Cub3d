@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 18:23:46 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 07:27:25 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,19 @@ static void	parse_settings(t_game **game)
 	check_settings(*game);
 }
 
+static void	init_keys(t_game *game)
+{
+	game->keys = malloc(sizeof(t_keys));
+	if (!game->keys)
+		errmsg("Malloc error", true, game);
+	game->keys->w = false;
+	game->keys->a = false;
+	game->keys->s = false;
+	game->keys->d = false;
+	game->keys->left = false;
+	game->keys->right = false;
+}
+
 void	init_data(t_game **game, char **argv)
 {
 	*game = malloc(sizeof(t_game));
@@ -74,4 +87,5 @@ void	init_data(t_game **game, char **argv)
 	parse_settings(game);
 	parse_map(*game);
 	init_player(game);
+	init_keys(*game);
 }

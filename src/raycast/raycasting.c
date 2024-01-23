@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:43:15 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/22 16:36:58 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 07:58:07 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	perform_dda(t_game *game, t_ray *ray)
 					- ray->step_y) / 2) / ray->dir_y;
 }
 
-unsigned int get_texture_color(t_north *north, int x, int y)
+unsigned int	get_texture_color(t_north *north, int x, int y)
 {
 	int	index;
 
@@ -48,8 +48,8 @@ unsigned int get_texture_color(t_north *north, int x, int y)
 		x -= 50;
 		y -= 50;
 	}
-    index = (y * north->len) + (x * (north->bpp / 8));
-    return *(unsigned int*)(north->addr + index);
+	index = (y * north->len) + (x * (north->bpp / 8));
+	return (*(unsigned int *)(north->addr + index));
 }
 
 void	draw_wall(t_game *game, t_ray *ray, int x)
@@ -62,16 +62,16 @@ void	draw_wall(t_game *game, t_ray *ray, int x)
 		if (ray->side == 1)
 		{
 			if (ray->dir_y < 0)
-				my_pixel_put(game, x, y, 0xC74F4F); // Mur nord (dark blue)
+				my_pixel_put(game, x, y, 0xC74F4F);
 			else
-				my_pixel_put(game, x, y, 0x4C608E); // Mur sud
+				my_pixel_put(game, x, y, 0x4C608E);
 		}
 		else
 		{
 			if (ray->dir_x < 0)
-				my_pixel_put(game, x, y, 0xC3C74F); // Mur ouest
+				my_pixel_put(game, x, y, 0xC3C74F);
 			else
-				my_pixel_put(game, x, y, 0x744C8E); // Mur est
+				my_pixel_put(game, x, y, 0x744C8E);
 		}
 	}
 }
