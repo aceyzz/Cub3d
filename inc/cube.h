@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 16:46:55 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:57:15 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@
 # define TEX_SIZE 128
 
 # define GUN "./img/bonus/p1.xpm"
-# define GUN_X 1244
+# define GUN_X 1246
 # define GUN_Y 700
 
 typedef struct s_player
