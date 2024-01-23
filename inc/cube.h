@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 07:52:08 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 08:00:02 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@
 # define MOVE_SPEED 0.05
 
 # define FOV 60
-# define TILE_SIZE 50
-# define TEX_X 50
-# define TEX_Y 50
+# define TILE_SIZE 64
 
 typedef struct s_player
 {
