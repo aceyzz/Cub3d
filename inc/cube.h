@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 10:00:31 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:41:39 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 
-# define ROTA_SPEED 0.15
-# define MOVE_SPEED 0.15
+# define ROTA_SPEED 0.02
+# define MOVE_SPEED 0.02
 
 # define FOV 60
 # define TILE_SIZE 64
@@ -124,6 +124,15 @@ typedef struct s_floor_ceiling
 	double		floor_y;
 	double		dist_wall;
 }				t_floor_ceiling;
+
+typedef struct t_tools
+{
+	int			x;
+	int			y;
+	int			mirrored_y;
+	double		dist_wall;
+	double		dist_floor;
+}				t_tools;
 
 typedef struct s_mlx
 {

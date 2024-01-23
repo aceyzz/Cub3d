@@ -6,11 +6,16 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 13:17:55 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 10:04:29 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:41:05 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+static int	mirror_value(int value)
+{
+	return (Y_RES / 2 - (value - Y_RES / 2));
+}
 
 static void	draw_texture_pixel_fl(t_game *game, int x, int y)
 {
@@ -64,46 +69,36 @@ static void	draw_texture_pixel_cl(t_game *game, int x, int y)
 	my_pixel_put(game, x, y, get_texture_color_fc(game, 'C', tex_x, tex_y));
 }
 
-static void	draw_floor(t_game *game)
+static void	draw_floor(t_game *game, int x, int y)
 {
-	int	x;
-	int	y;
-
-	x = 29;
-	while (++x < X_RES - 30)
-	{
-		y = Y_RES / 2 - 29;
-		while (++y < Y_RES - 30)
-		{
-			if (game->settings->fl_ispath == false)
-				my_pixel_put(game, x, y, rgb_to_mlx(game->settings->fl_rgb));
-			else
-				draw_texture_pixel_fl(game, x, y);
-		}
-	}
-}
-
-static void	draw_ceiling(t_game *game)
-{
-	int	x;
-	int	y;
-
-	x = 29;
-	while (++x < X_RES - 30)
-	{
-		y = 29;
-		while (++y < Y_RES / 2 - 30)
-		{
-			if (game->settings->cl_ispath == false)
-				my_pixel_put(game, x, y, rgb_to_mlx(game->settings->cl_rgb));
-			else
-				draw_texture_pixel_cl(game, x, y);
-		}
-	}
+	if (game->settings->fl_ispath == false)
+		my_pixel_put(game, x, y, rgb_to_mlx(game->settings->fl_rgb));
+	else
+		draw_texture_pixel_fl(game, x, y);
 }
 
 void	draw_floor_ceiling(t_game *game)
 {
-	draw_floor(game);
-	draw_ceiling(game);
+	t_tools	cd;
+
+	cd.x = 29;
+	while (++cd.x < X_RES - 30)
+	{
+		cd.y = 29;
+		while (++cd.y < Y_RES / 2 - 30)
+		{
+			cd.dist_wall = game->ray[cd.x].perp_wall_dist;
+			cd.dist_floor = Y_RES / (2.0 * cd.y - Y_RES);
+			cd.mirrored_y = mirror_value(cd.y);
+			if (cd.dist_floor <= cd.dist_wall)
+			{
+				if (game->settings->cl_ispath == false)
+					my_pixel_put(game, cd.x, cd.y,
+						rgb_to_mlx(game->settings->cl_rgb));
+				else
+					draw_texture_pixel_cl(game, cd.x, cd.y);
+				draw_floor(game, cd.x, cd.mirrored_y);
+			}
+		}
+	}
 }
