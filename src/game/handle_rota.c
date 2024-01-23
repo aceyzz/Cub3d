@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:39:16 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 07:58:26 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 11:06:42 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate_right(t_game *game)
 	double	old_plane_x;
 	double	rota_speed;
 
-	rota_speed = ROTA_SPEED * 0.5;
+	rota_speed = game->player->rota_speed;
 	old_dir_x = game->player->dir_x;
 	game->player->dir_x = game->player->dir_x * cos(rota_speed)
 		- game->player->dir_y * sin(rota_speed);
@@ -37,7 +37,7 @@ void	rotate_left(t_game *game)
 	double	old_plane_x;
 	double	rota_speed;
 
-	rota_speed = ROTA_SPEED * 0.5;
+	rota_speed = game->player->rota_speed;
 	old_dir_x = game->player->dir_x;
 	game->player->dir_x = game->player->dir_x * cos(-rota_speed)
 		- game->player->dir_y * sin(-rota_speed);

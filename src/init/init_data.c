@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 07:27:25 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 11:10:56 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,9 @@ void	init_data(t_game **game, char **argv)
 	parse_map(*game);
 	init_player(game);
 	init_keys(*game);
+	if (!(*game)->settings->fl_ispath || !(*game)->settings->cl_ispath)
+	{
+		(*game)->player->move_speed *= 0.45;
+		(*game)->player->rota_speed *= 0.45;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 10:41:39 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 11:11:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+# define DEBUG 1
 
 # define RST "\033[0m"
 # define RED "\033[1;31m"
@@ -47,8 +49,8 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 
-# define ROTA_SPEED 0.02
-# define MOVE_SPEED 0.02
+# define ROTA_SPEED 0.10
+# define MOVE_SPEED 0.12
 
 # define FOV 60
 # define TILE_SIZE 64
@@ -62,6 +64,8 @@ typedef struct s_player
 	double		dir_y;
 	double		plane_x;
 	double		plane_y;
+	double		move_speed;
+	double		rota_speed;
 }				t_player;
 
 typedef struct s_ray

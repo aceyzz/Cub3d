@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:11:50 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 18:23:39 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 11:05:22 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,6 @@ void	init_player(t_game **game)
 	if (!(*game)->player)
 		errmsg("Malloc error", true, *game);
 	init_player_info(*game);
+	(*game)->player->move_speed = MOVE_SPEED;
+	(*game)->player->rota_speed = ROTA_SPEED;
 }

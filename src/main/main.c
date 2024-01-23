@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 07:24:28 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:50:58 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main(int argc, char **argv)
 
 	check_args(argc, argv);
 	init_data(&game, argv);
-	print_data(game);
+	if (DEBUG == 1)
+		print_data(game);
 	init_mlx(game);
 	init_textures(game);
 	draw_hud(game);

@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:38:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 07:58:20 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:58:01 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	move_forward(t_game *game)
 	new_x = game->player->dir_x;
 	new_y = game->player->dir_y;
 	normalize_speed(&new_x, &new_y);
-	new_x = game->player->pos_x + MOVE_SPEED * new_x;
-	new_y = game->player->pos_y + MOVE_SPEED * new_y;
+	new_x = game->player->pos_x + game->player->move_speed * new_x;
+	new_y = game->player->pos_y + game->player->move_speed * new_y;
 	if (!collision_with_wall(game, new_x, new_y))
 	{
 		game->player->pos_x = new_x;
@@ -49,8 +49,8 @@ void	move_backward(t_game *game)
 	new_x = -game->player->dir_x;
 	new_y = -game->player->dir_y;
 	normalize_speed(&new_x, &new_y);
-	new_x = game->player->pos_x + MOVE_SPEED * new_x;
-	new_y = game->player->pos_y + MOVE_SPEED * new_y;
+	new_x = game->player->pos_x + game->player->move_speed * new_x;
+	new_y = game->player->pos_y + game->player->move_speed * new_y;
 	if (!collision_with_wall(game, new_x, new_y))
 	{
 		game->player->pos_x = new_x;
@@ -66,8 +66,8 @@ void	move_left(t_game *game)
 	new_x = -game->player->plane_x;
 	new_y = -game->player->plane_y;
 	normalize_speed(&new_x, &new_y);
-	new_x = game->player->pos_x + MOVE_SPEED * new_x;
-	new_y = game->player->pos_y + MOVE_SPEED * new_y;
+	new_x = game->player->pos_x + game->player->move_speed * new_x;
+	new_y = game->player->pos_y + game->player->move_speed * new_y;
 	if (!collision_with_wall(game, new_x, new_y))
 	{
 		game->player->pos_x = new_x;
@@ -83,8 +83,8 @@ void	move_right(t_game *game)
 	new_x = game->player->plane_x;
 	new_y = game->player->plane_y;
 	normalize_speed(&new_x, &new_y);
-	new_x = game->player->pos_x + MOVE_SPEED * new_x;
-	new_y = game->player->pos_y + MOVE_SPEED * new_y;
+	new_x = game->player->pos_x + game->player->move_speed * new_x;
+	new_y = game->player->pos_y + game->player->move_speed * new_y;
 	if (!collision_with_wall(game, new_x, new_y))
 	{
 		game->player->pos_x = new_x;
