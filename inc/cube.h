@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 11:14:45 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:58:19 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <string.h>
 # include <unistd.h>
 
-# define DEBUG 1
+# define DEBUG 0
 
 # define RST "\033[0m"
 # define RED "\033[1;31m"

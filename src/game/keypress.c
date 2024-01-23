@@ -6,13 +6,13 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:31:01 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 07:30:06 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:01:36 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	debug_printer(t_game *game)
+static void	debug_printer(t_game *game)
 {
 	printf("pos_x: \033[1;31m%f\033[0m -- ", game->player->pos_x);
 	printf("pos_y: \033[1;34m%f\033[0m -- ", game->player->pos_y);
@@ -53,6 +53,8 @@ int	keypress(int keycode, t_game *game)
 		game->keys->left = true;
 	if (keycode == K_RIGHT)
 		game->keys->right = true;
+	if (DEBUG == 1)
+		debug_printer(game);
 	return (0);
 }
 
