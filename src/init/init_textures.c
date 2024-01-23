@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:25:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 07:59:52 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/23 08:13:37 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	set_nsew(t_game *game)
 {
 	int	size;
 
-	size = 64;
+	size = TEX_SIZE;
 	game->north->img = mlx_xpm_file_to_image(game->mlx->mlx,
 			game->settings->north, &size, &size);
 	game->south->img = mlx_xpm_file_to_image(game->mlx->mlx,
@@ -42,7 +42,7 @@ static void	set_floor(t_game *game)
 {
 	int	size;
 
-	size = 64;
+	size = TEX_SIZE;
 	game->floor->img = mlx_xpm_file_to_image(game->mlx->mlx,
 			game->settings->floor, &size, &size);
 	if (!game->floor->img)
@@ -55,7 +55,7 @@ static void	set_ceil(t_game *game)
 {
 	int	size;
 
-	size = 64;
+	size = TEX_SIZE;
 	game->ceil->img = mlx_xpm_file_to_image(game->mlx->mlx,
 			game->settings->ceil, &size, &size);
 	if (!game->ceil->img)
