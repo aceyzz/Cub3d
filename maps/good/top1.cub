@@ -1,0 +1,21 @@
+NO img/128/duke/north.xpm
+SO img/128/duke/south.xpm
+WE img/128/duke/west.xpm
+EA img/128/duke/east.xpm
+
+F ./img/128/duke/floor.xpm
+C ./img/128/duke/ceiling.xpm
+
+111
+1N1
+101
+101
+101
+101
+101
+101
+101
+101
+101
+101
+111

@@ -1,0 +1,21 @@
+11111
+10001
+10S01
+10001
+10001
+10001
+11001
+10001
+10001
+10001
+10001
+10001
+11111
+
+NO img/128/duke/north.xpm
+SO img/128/duke/south.xpm
+WE img/128/duke/west.xpm
+EA img/128/duke/east.xpm
+
+F 20,20,20
+C 200,200,200

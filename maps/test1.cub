@@ -1,10 +1,10 @@
-NO ./img/128/north.xpm
-SO ./img/128/south.xpm
-WE ./img/128/west.xpm
-EA ./img/128/east.xpm
+NO img/128/beach/north.xpm
+SO img/128/beach/south.xpm
+WE img/128/beach/west.xpm
+EA img/128/beach/east.xpm
 
-F 62,134,81
-C 93,176,212
+F ./img/128/beach/floor.xpm
+C ./img/128/beach/ceiling.xpm
 
         1111111111111111111111111
         1000000000110000000000001

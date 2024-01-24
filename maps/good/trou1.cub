@@ -1,0 +1,16 @@
+NO img/128/duke/north.xpm
+SO img/128/duke/south.xpm
+WE img/128/duke/west.xpm
+EA img/128/duke/east.xpm
+
+F ./img/128/duke/floor.xpm
+C ./img/128/duke/ceiling.xpm
+
+111111111111
+1          1
+1          1
+111111111111
+10S000000001
+111111111111
+1          1
+111111111111
