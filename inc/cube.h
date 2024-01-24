@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 16:57:15 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/24 13:32:59 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@
 # define X_RES 1920
 # define Y_RES 1080
 
-# define MINIMAP_SCALE 10
+# define MINIMAP_SCALE 250
+# define MINIMAP_RANGE 4
 
 # define K_ESC 53
 # define K_W 13
@@ -93,6 +94,21 @@ typedef struct s_ray
 	int			draw_start;
 	int			draw_end;
 }				t_ray;
+
+typedef struct s_mini
+{
+	size_t		index_x;
+	size_t		index_y;
+	size_t		center_x;
+	size_t		center_y;
+	int			offset_x;
+	int			offset_y;
+	size_t		size_x;
+	size_t		size_y;
+	int			wall_color;
+	int			floor_color;
+	int			empty_color;
+}				t_mini;
 
 typedef struct s_texture
 {
@@ -220,15 +236,6 @@ typedef struct s_settings
 	int			cl_rgb[3];
 }				t_settings;
 
-typedef struct s_minimap
-{
-	double		line_x;
-	double		line_y;
-	double		angle;
-	double		radius;
-	int			color;
-}				t_minimap;
-
 typedef struct s_keys
 {
 	bool		w;
@@ -237,6 +244,7 @@ typedef struct s_keys
 	bool		d;
 	bool		left;
 	bool		right;
+	bool		space;
 }				t_keys;
 
 typedef struct s_game
@@ -318,8 +326,6 @@ void			rotate_left(t_game *game);
 void			rotate_right(t_game *game);
 /* draw_hud.c */
 void			draw_hud(t_game *game);
-/* minimap.c */
-void			draw_player_minimap(t_game *game);
 /* floor_ceiling.c */
 void			draw_floor_ceiling(t_game *game);
 /* draw_utils.c */
@@ -342,5 +348,6 @@ int				calculate_tex_x(t_game *game, t_ray *ray);
 int				calculate_tex_y(t_ray *ray, int y);
 /* bonus.c */
 void			bonus(t_game *game);
+void			minimap(t_game *game);
 
 #endif
