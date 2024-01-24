@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:09:17 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/24 13:32:49 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:25:52 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,34 +61,14 @@ static void	draw_frame(t_game *game)
 	}
 }
 
-static void	draw_player(t_game *game)
-{
-	int	x;
-	int	y;
-	int	radius;
-	int	i;
-	int	j;
-
-	radius = MINIMAP_SCALE / 40;
-	x = 30 + MINIMAP_SCALE / 2 - radius;
-	y = Y_RES - 30 - MINIMAP_SCALE / 2 + radius * 2;
-	i = x - radius;
-	while (i < x + radius)
-	{
-		j = y - radius;
-		while (j < y + radius)
-		{
-			if ((i - x) * (i - x) + (j - y) * (j - y) <= radius * radius)
-				my_pixel_put(game, i, j, 0xFFFF00);
-			j++;
-		}
-		i++;
-	}
-}
-
 void	minimap(t_game *game)
 {
+	t_mini	mini;
+
 	draw_basis(game);
 	draw_frame(game);
-	draw_player(game);
+	init_mini(&mini, game);
+	render_minimap(game, &mini);
+	render_player(game, &mini);
+	render_line_direction(game, &mini);
 }

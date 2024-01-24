@@ -6,11 +6,24 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:29:49 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/21 18:09:50 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:08:30 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+int	add_shader(int color, double distance)
+{
+	int	rgb[3];
+
+	rgb[0] = (color & 0xFF0000) >> 16;
+	rgb[1] = (color & 0xFF00) >> 8;
+	rgb[2] = (color & 0xFF);
+	rgb[0] = rgb[0] - (rgb[0] * distance);
+	rgb[1] = rgb[1] - (rgb[1] * distance);
+	rgb[2] = rgb[2] - (rgb[2] * distance);
+	return (rgb_to_mlx(rgb));
+}
 
 int	rgb_to_mlx(int rgb[3])
 {

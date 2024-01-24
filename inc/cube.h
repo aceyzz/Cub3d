@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/24 13:32:59 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:25:11 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ typedef struct s_mini
 	int			offset_y;
 	size_t		size_x;
 	size_t		size_y;
+	double		ratio_x;
+	double		ratio_y;
 	int			wall_color;
 	int			floor_color;
 	int			empty_color;
@@ -244,7 +246,6 @@ typedef struct s_keys
 	bool		d;
 	bool		left;
 	bool		right;
-	bool		space;
 }				t_keys;
 
 typedef struct s_game
@@ -331,6 +332,7 @@ void			draw_floor_ceiling(t_game *game);
 /* draw_utils.c */
 void			my_pixel_put(t_game *game, int x, int y, int color);
 int				rgb_to_mlx(int rgb[3]);
+int				add_shader(int color, double distance);
 /* ray_utils.c */
 void			init_rays(t_game *game, t_ray *ray, int x);
 void			calculate_line_height(t_game *game, t_ray *ray);
@@ -349,5 +351,11 @@ int				calculate_tex_y(t_ray *ray, int y);
 /* bonus.c */
 void			bonus(t_game *game);
 void			minimap(t_game *game);
+/* init_mini.c */
+void			init_mini(t_mini *mini, t_game *game);
+/* mini_moving.c */
+void			render_minimap(t_game *game, t_mini *mini);
+void			render_player(t_game *game, t_mini *mini);
+void			render_line_direction(t_game *game, t_mini *mini);
 
 #endif
