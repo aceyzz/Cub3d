@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:24:20 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/24 16:25:46 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:28:47 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void	render_player(t_game *game, t_mini *mini)
 	x = mini->offset_x + game->player->pos_x * mini->ratio_x;
 	y = mini->offset_y + game->player->pos_y * mini->ratio_y;
 	i = x - 5;
-	while (i < x + 5)
+	while (i < x + 3)
 	{
-		j = y - 5;
-		while (j < y + 5)
+		j = y - 3;
+		while (j < y + 3)
 		{
-			if ((i - x) * (i - x) + (j - y) * (j - y) <= 5 * 5)
+			if ((i - x) * (i - x) + (j - y) * (j - y) <= 3 * 3)
 				my_pixel_put(game, i, j, add_shader(0x00FFFF, 0.40));
 			j++;
 		}
@@ -93,9 +93,5 @@ void	render_line_direction(t_game *game, t_mini *mini)
 	{
 		my_pixel_put(game, x + i * game->player->dir_x, y + i
 			* game->player->dir_y, add_shader(0x00FFFF, 0.40));
-		my_pixel_put(game, x + i * game->player->dir_x + 1, y + i
-			* game->player->dir_y + 1, add_shader(0x00FFFF, 0.40));
-		my_pixel_put(game, x + i * game->player->dir_x - 1, y + i
-			* game->player->dir_y + 1, add_shader(0x00FFFF, 0.40));
 	}
 }

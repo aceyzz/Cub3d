@@ -6,27 +6,11 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/24 11:44:56 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:15:53 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
-
-static void	gun(t_game *game)
-{
-	t_texture	pov;
-	int			size_x;
-	int			size_y;
-
-	size_x = GUN_X;
-	size_y = GUN_Y;
-	pov.img = mlx_xpm_file_to_image(game->mlx->mlx, GUN,
-			&size_x, &size_y);
-	pov.addr = mlx_get_data_addr(pov.img, &pov.bpp, &pov.len, &pov.endian);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, pov.img, X_RES / 4,
-		Y_RES - size_y - 30);
-	mlx_destroy_image(game->mlx->mlx, pov.img);
-}
 
 static void	cursor(t_game *game)
 {
@@ -50,46 +34,45 @@ static void	handle_mouse(t_game *game)
 	int	y;
 
 	mlx_mouse_get_pos(game->mlx->win, &x, &y);
-	if (x < X_RES / 2)
+	if (x < X_RES / 2 - 10)
 		rotate_left(game);
-	if (x > X_RES / 2)
+	if (x > X_RES / 2 + 10)
 		rotate_right(game);
 	if (x > X_RES / 2 || x < X_RES / 2)
 		mlx_mouse_move(game->mlx->win, X_RES / 2, Y_RES / 2);
 }
 
-static int	shoot(int button, int x, int y, t_game *game)
+static int	shoot(int key, int x, int y, t_game *game)
 {
-	t_texture	pov;
-	int			size_x;
-	int			size_y;
+	int	i;
 
-	size_x = GUN_X;
-	size_y = GUN_Y;
+	i = 0;
 	(void)x;
 	(void)y;
-	if (button == 1)
+	if (key == 1)
 	{
-		pov.img = mlx_xpm_file_to_image(game->mlx->mlx, "./img/bonus/p2.xpm",
-				&size_x, &size_y);
-		pov.addr = mlx_get_data_addr(pov.img, &pov.bpp, &pov.len, &pov.endian);
-		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, pov.img, X_RES
-			/ 4, Y_RES - size_y - 30);
-		mlx_destroy_image(game->mlx->mlx, pov.img);
-		pov.img = mlx_xpm_file_to_image(game->mlx->mlx, "./img/bonus/p3.xpm",
-				&size_x, &size_y);
-		pov.addr = mlx_get_data_addr(pov.img, &pov.bpp, &pov.len, &pov.endian);
-		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, pov.img, X_RES
-			/ 4, Y_RES - size_y - 30);
-		mlx_destroy_image(game->mlx->mlx, pov.img);
+		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->gun->img2,
+			X_RES / 2 + (X_RES / 10), Y_RES - game->gun->size_y2 - 30);
+		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->gun->img3,
+			X_RES / 2 + (X_RES / 10), Y_RES - game->gun->size_y3 - 30);
+		game->gun->img1 = mlx_xpm_file_to_image(game->mlx->mlx,
+				"./img/bonus/1.xpm", &game->gun->size_x1, &game->gun->size_y1);
+		game->gun->addr1 = mlx_get_data_addr(game->gun->img1,
+				&game->gun->bpp1, &game->gun->len1, &game->gun->endian1);
 	}
 	return (0);
 }
 
+static void	gun(t_game *game)
+{
+	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->gun->img1,
+		X_RES / 2 + (X_RES / 10), Y_RES - game->gun->size_y1 - 30);
+	mlx_hook(game->mlx->win, 4, 1L << 2, &shoot, game);
+}
+
 void	bonus(t_game *game)
 {
-	gun(game);
 	cursor(game);
 	handle_mouse(game);
-	mlx_hook(game->mlx->win, 4, 1L << 2, &shoot, game);
+	gun(game);
 }

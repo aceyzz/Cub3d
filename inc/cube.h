@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/24 16:25:11 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:00:13 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@
 # define CYA "\033[1;36m"
 # define WHT "\033[1;37m"
 
-# define X_RES 1920
-# define Y_RES 1080
+# define X_RES 1280
+# define Y_RES 720
 
-# define MINIMAP_SCALE 250
+# define MINIMAP_SCALE 150
 # define MINIMAP_RANGE 4
 
 # define K_ESC 53
@@ -50,15 +50,11 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 
-# define ROTA_SPEED 0.10
+# define ROTA_SPEED 0.12
 # define MOVE_SPEED 0.12
 
 # define FOV 60
 # define TEX_SIZE 128
-
-# define GUN "./img/bonus/p1.xpm"
-# define GUN_X 1246
-# define GUN_Y 700
 
 typedef struct s_player
 {
@@ -120,6 +116,45 @@ typedef struct s_texture
 	int			len;
 	int			endian;
 }				t_texture;
+
+typedef struct s_gun
+{
+	void		*img1;
+	char		*addr1;
+	int			bpp1;
+	int			len1;
+	int			endian1;
+	int			size_x1;
+	int			size_y1;
+	void		*img2;
+	char		*addr2;
+	int			bpp2;
+	int			len2;
+	int			endian2;
+	int			size_x2;
+	int			size_y2;
+	void		*img3;
+	char		*addr3;
+	int			bpp3;
+	int			len3;
+	int			endian3;
+	int			size_x3;
+	int			size_y3;
+	void		*img4;
+	char		*addr4;
+	int			bpp4;
+	int			len4;
+	int			endian4;
+	int			size_x4;
+	int			size_y4;
+	void		*img5;
+	char		*addr5;
+	int			bpp5;
+	int			len5;
+	int			endian5;
+	int			size_x5;
+	int			size_y5;
+}				t_gun;
 
 typedef struct s_tex_utils
 {
@@ -251,6 +286,7 @@ typedef struct s_keys
 typedef struct s_game
 {
 	int			fd;
+	int			frame;
 	char		*filename;
 	char		*filecontent_str;
 	size_t		filecontent_size;
@@ -270,6 +306,7 @@ typedef struct s_game
 	t_floor		*floor;
 	t_ceil		*ceil;
 	t_keys		*keys;
+	t_gun		*gun;
 }				t_game;
 
 /* print_data.c */

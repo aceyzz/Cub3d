@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 13:17:55 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 10:41:05 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/25 18:27:04 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	draw_floor_ceiling(t_game *game)
 	while (++cd.x < X_RES - 30)
 	{
 		cd.y = 29;
-		while (++cd.y < Y_RES / 2 - 30)
+		while (++cd.y < Y_RES / 2)
 		{
 			cd.dist_wall = game->ray[cd.x].perp_wall_dist;
 			cd.dist_floor = Y_RES / (2.0 * cd.y - Y_RES);
