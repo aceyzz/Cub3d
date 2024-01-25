@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/25 19:15:53 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:48:58 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,11 @@ static int	shoot(int key, int x, int y, t_game *game)
 	if (key == 1)
 	{
 		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->gun->img2,
-			X_RES / 2 + (X_RES / 10), Y_RES - game->gun->size_y2 - 30);
+			X_RES / 2 + (X_RES / 8) - game->gun->size_x2 / 2,
+			Y_RES - game->gun->size_y2 - 30);
 		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->gun->img3,
-			X_RES / 2 + (X_RES / 10), Y_RES - game->gun->size_y3 - 30);
-		game->gun->img1 = mlx_xpm_file_to_image(game->mlx->mlx,
-				"./img/bonus/1.xpm", &game->gun->size_x1, &game->gun->size_y1);
-		game->gun->addr1 = mlx_get_data_addr(game->gun->img1,
-				&game->gun->bpp1, &game->gun->len1, &game->gun->endian1);
+			X_RES / 2 + (X_RES / 8) - game->gun->size_x3 / 2,
+			Y_RES - game->gun->size_y3 - 30);
 	}
 	return (0);
 }
@@ -66,7 +64,8 @@ static int	shoot(int key, int x, int y, t_game *game)
 static void	gun(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->gun->img1,
-		X_RES / 2 + (X_RES / 10), Y_RES - game->gun->size_y1 - 30);
+		X_RES / 2 + (X_RES / 8) - game->gun->size_x1 / 2,
+		Y_RES - game->gun->size_y1 - 30);
 	mlx_hook(game->mlx->win, 4, 1L << 2, &shoot, game);
 }
 

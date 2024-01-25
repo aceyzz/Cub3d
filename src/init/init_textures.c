@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:25:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/25 19:10:15 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:46:56 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,15 @@ static void	set_ceil(t_game *game)
 static void	init_gun(t_game *game)
 {
 	game->gun = malloc(sizeof(t_gun));
-	game->gun->img1 = mlx_xpm_file_to_image(game->mlx->mlx, "./img/bonus/1.xpm",
+	game->gun->img1 = mlx_xpm_file_to_image(game->mlx->mlx, GUN_A,
 			&game->gun->size_x1, &game->gun->size_y1);
 	game->gun->addr1 = mlx_get_data_addr(game->gun->img1, &game->gun->bpp1,
 			&game->gun->len1, &game->gun->endian1);
-	game->gun->img2 = mlx_xpm_file_to_image(game->mlx->mlx, "./img/bonus/2.xpm",
+	game->gun->img2 = mlx_xpm_file_to_image(game->mlx->mlx, GUN_B,
 			&game->gun->size_x2, &game->gun->size_y2);
 	game->gun->addr2 = mlx_get_data_addr(game->gun->img2, &game->gun->bpp2,
 			&game->gun->len2, &game->gun->endian2);
-	game->gun->img3 = mlx_xpm_file_to_image(game->mlx->mlx, "./img/bonus/3.xpm",
+	game->gun->img3 = mlx_xpm_file_to_image(game->mlx->mlx, GUN_C,
 			&game->gun->size_x3, &game->gun->size_y3);
 	game->gun->addr3 = mlx_get_data_addr(game->gun->img3, &game->gun->bpp3,
 			&game->gun->len3, &game->gun->endian3);

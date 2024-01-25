@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/25 19:00:13 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/25 19:57:41 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@
 # define MINIMAP_SCALE 150
 # define MINIMAP_RANGE 4
 
+# define GUN_A "./img/bonus/1.xpm"
+# define GUN_B "./img/bonus/2.xpm"
+# define GUN_C "./img/bonus/3.xpm"
+
 # define K_ESC 53
 # define K_W 13
 # define K_A 0
@@ -51,7 +55,7 @@
 # define K_RIGHT 124
 
 # define ROTA_SPEED 0.12
-# define MOVE_SPEED 0.12
+# define MOVE_SPEED 0.11
 
 # define FOV 60
 # define TEX_SIZE 128
@@ -396,3 +400,24 @@ void			render_player(t_game *game, t_mini *mini);
 void			render_line_direction(t_game *game, t_mini *mini);
 
 #endif
+
+/*
+
+    Noir:		0x000000
+    Blanc:		0xFFFFFF
+    Rouge:		0xFF0000
+    Vert:		0x008000
+    Bleu:		0x0000FF
+    Jaune:		0xFFFF00
+    Cyan:		0x00FFFF
+    Magenta:	0xFF00FF
+    Argent:		0xC0C0C0
+    Gris: 		0x808080
+    Maroon:		0x800000
+    Olive:		0x808000
+    Vert foncé:	0x008080
+    Pourpre:	0x800080
+    Teal:		0x008080
+    Navy: 		0x000080
+
+*/
