@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/25 19:57:41 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/25 21:02:49 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <string.h>
 # include <unistd.h>
 
-# define DEBUG 0
+# define DEBUG 1
 
 # define RST "\033[0m"
 # define RED "\033[1;31m"
@@ -151,13 +151,6 @@ typedef struct s_gun
 	int			endian4;
 	int			size_x4;
 	int			size_y4;
-	void		*img5;
-	char		*addr5;
-	int			bpp5;
-	int			len5;
-	int			endian5;
-	int			size_x5;
-	int			size_y5;
 }				t_gun;
 
 typedef struct s_tex_utils
