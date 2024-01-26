@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 08:52:03 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:54:43 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 # define K_LEFT 123
 # define K_RIGHT 124
 # define K_LSHIFT 257
+# define K_R 15
 
 # define ROTA_SPEED 0.12
 # define MOVE_SPEED 0.08
@@ -152,6 +153,8 @@ typedef struct s_gun
 	int			endian4;
 	int			size_x4;
 	int			size_y4;
+	int			ammo;
+	bool		empty_mag;
 }				t_gun;
 
 typedef struct s_tex_utils
@@ -280,6 +283,7 @@ typedef struct s_keys
 	bool		left;
 	bool		right;
 	bool		shift;
+	bool		r;
 }				t_keys;
 
 typedef struct s_game

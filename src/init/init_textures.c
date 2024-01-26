@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:25:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/25 19:46:56 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:56:33 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ static void	init_gun(t_game *game)
 			&game->gun->size_x3, &game->gun->size_y3);
 	game->gun->addr3 = mlx_get_data_addr(game->gun->img3, &game->gun->bpp3,
 			&game->gun->len3, &game->gun->endian3);
+	game->gun->empty_mag = false;
+	game->gun->ammo = 10;
 }
 
 void	init_textures(t_game *game)

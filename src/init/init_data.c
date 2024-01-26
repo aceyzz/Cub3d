@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/25 19:00:37 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:55:33 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ static void	init_keys(t_game *game)
 	game->keys->d = false;
 	game->keys->left = false;
 	game->keys->right = false;
+	game->keys->shift = false;
+	game->keys->r = false;
 }
 
 void	init_data(t_game **game, char **argv)
