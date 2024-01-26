@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/26 10:22:46 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/26 10:47:02 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -139,3 +139,6 @@ re: fclean all
 
 norme:
 	@python3 -m norminette -R CheckDefine $(SRC) $(INC_DIR)*.h $(INC_DIR)libft/*.c $(INC_DIR)libft/*.h | sed "s/Error/[1;31m&/; s/line:/[0m&/; s/$$/[0m/; s/OK!/[1;32m&/; s/KO/[1;31m&/; s/(/[0m&/"
+	@echo "\n$(GRE)---------------------------------$(RST)\n"
+	@python3 -m norminette -R CheckDefine $(SRC) $(INC_DIR)*.h $(INC_DIR)libft/*.c $(INC_DIR)libft/*.h | awk '/^Error:/ {errorCount++} /OK/ {count++} END {total = NR - errorCount; if (count == total) {print "\033[1;32m\tOK: " count " / " total " total\033[0m"} else {print "\033[1;31m\tKO: " count " / " total " total\033[0m"}}'
+	@echo "\n$(GRE)---------------------------------$(RST)\n"
