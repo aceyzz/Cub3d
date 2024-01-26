@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:09:43 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/25 19:00:41 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:51:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ static void	update_movements(t_game *game)
 		rotate_left(game);
 	if (game->keys->right)
 		rotate_right(game);
+	if (game->keys->shift)
+		game->player->move_speed = RUN_SPEED;
+	if (!game->keys->shift)
+		game->player->move_speed = MOVE_SPEED;
 }
 
 int	main_game(t_game *game)

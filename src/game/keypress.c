@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:31:01 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/24 11:42:03 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:44:46 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	keyrelease(int keycode, t_game *game)
 		game->keys->left = false;
 	if (keycode == K_RIGHT)
 		game->keys->right = false;
+	if (keycode == K_LSHIFT)
+		game->keys->shift = false;
 	return (0);
 }
 
@@ -53,6 +55,8 @@ int	keypress(int keycode, t_game *game)
 		game->keys->left = true;
 	if (keycode == K_RIGHT)
 		game->keys->right = true;
+	if (keycode == K_LSHIFT)
+		game->keys->shift = true;
 	if (DEBUG == 1)
 		debug_printer(game);
 	return (0);

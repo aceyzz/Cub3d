@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/25 21:02:49 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 08:52:03 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@
 # define Y_RES 720
 
 # define MINIMAP_SCALE 150
-# define MINIMAP_RANGE 4
 
 # define GUN_A "./img/bonus/1.xpm"
 # define GUN_B "./img/bonus/2.xpm"
@@ -53,9 +52,11 @@
 # define K_D 2
 # define K_LEFT 123
 # define K_RIGHT 124
+# define K_LSHIFT 257
 
 # define ROTA_SPEED 0.12
-# define MOVE_SPEED 0.11
+# define MOVE_SPEED 0.08
+# define RUN_SPEED 0.19
 
 # define FOV 60
 # define TEX_SIZE 128
@@ -278,6 +279,7 @@ typedef struct s_keys
 	bool		d;
 	bool		left;
 	bool		right;
+	bool		shift;
 }				t_keys;
 
 typedef struct s_game
