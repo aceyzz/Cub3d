@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 11:32:53 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:21:31 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@
 # define K_LSHIFT 257
 # define K_R 15
 # define K_E 14
+# define K_ENTER 36
 
-# define ROTA_SPEED 0.12
+# define ROTA_SPEED 0.10
 # define MOVE_SPEED 0.08
 # define RUN_SPEED 0.19
 
@@ -127,6 +128,8 @@ typedef struct s_texture
 	int			bpp;
 	int			len;
 	int			endian;
+	int			width;
+	int			height;
 }				t_texture;
 
 typedef struct s_gun
@@ -305,6 +308,7 @@ typedef struct s_keys
 	bool		shift;
 	bool		r;
 	bool		e;
+	bool		enter;
 	bool		no_auto;
 }				t_keys;
 
@@ -332,6 +336,7 @@ typedef struct s_game
 	t_ceil		*ceil;
 	t_keys		*keys;
 	t_gun		*gun;
+	t_texture	*menu;
 }				t_game;
 
 /* print_data.c */

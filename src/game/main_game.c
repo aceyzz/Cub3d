@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:09:43 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 08:51:00 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:25:31 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@ static void	update_movements(t_game *game)
 
 int	main_game(t_game *game)
 {
-	update_movements(game);
-	draw_floor_ceiling(game);
-	raycasting(game);
-	draw_hud(game);
-	minimap(game);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->mlx->img, 0,
-		0);
-	bonus(game);
-	mlx_mouse_hide();
+	if (game->keys->enter == true)
+	{
+		update_movements(game);
+		draw_floor_ceiling(game);
+		raycasting(game);
+		draw_hud(game);
+		minimap(game);
+		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
+			game->mlx->img, 0, 0);
+		bonus(game);
+		mlx_mouse_hide();
+	}
 	return (0);
 }

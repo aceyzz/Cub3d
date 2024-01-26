@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:48 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 09:31:27 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:47:46 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@ static void	draw_top_left_corner(t_game *game)
 
 void	draw_hud(t_game *game)
 {
-	draw_top_bottom_border(game);
-	draw_left_right_border(game);
-	draw_top_left_corner(game);
+	if (game->keys->enter == true)
+	{
+		draw_top_bottom_border(game);
+		draw_left_right_border(game);
+		draw_top_left_corner(game);
+	}
 }

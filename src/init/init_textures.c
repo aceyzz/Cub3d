@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:25:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 09:33:54 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:38:30 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	init_textures(t_game *game)
 	game->south = malloc(sizeof(t_south));
 	game->east = malloc(sizeof(t_east));
 	game->west = malloc(sizeof(t_west));
+	game->menu = malloc(sizeof(t_texture));
 	if (game->settings->fl_ispath)
 		game->floor = malloc(sizeof(t_floor));
 	if (game->settings->cl_ispath)
