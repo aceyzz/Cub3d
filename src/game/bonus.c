@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 10:09:15 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:15:08 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	cursor(t_game *game)
 	my_pixel_put(game, x, y - 1, 0x00FF0000);
 }
 
-static void	handle_mouse(t_game *game)
+static void	handle_mouse_ammos(t_game *game)
 {
 	int	x;
 	int	y;
@@ -108,8 +108,8 @@ static void	gun(t_game *game)
 void	bonus(t_game *game)
 {
 	cursor(game);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->mlx->img, 0,
-		0);
-	handle_mouse(game);
+	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
+		game->mlx->img, 0, 0);
+	handle_mouse_ammos(game);
 	gun(game);
 }
