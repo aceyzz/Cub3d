@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 10:15:08 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 11:11:26 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ static void	gun(t_game *game)
 	{
 		game->gun->ammo = 7;
 		game->gun->empty_mag = false;
+	}
+	if (game->keys->e && game->keys->no_auto)
+	{
+		game->keys->no_auto = false;
+		shoot(1, 0, 0, game);
 	}
 }
 

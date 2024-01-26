@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 10:04:07 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 11:32:53 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,13 @@
 # define K_RIGHT 124
 # define K_LSHIFT 257
 # define K_R 15
+# define K_E 14
 
 # define ROTA_SPEED 0.12
 # define MOVE_SPEED 0.08
 # define RUN_SPEED 0.19
+
+# define COLLISION 0.4
 
 # define FOV 60
 # define TEX_SIZE 128
@@ -301,6 +304,8 @@ typedef struct s_keys
 	bool		right;
 	bool		shift;
 	bool		r;
+	bool		e;
+	bool		no_auto;
 }				t_keys;
 
 typedef struct s_game

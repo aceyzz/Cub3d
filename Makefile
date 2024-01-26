@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/26 10:47:02 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/26 11:00:49 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,55 @@ NAME	= cube
 
 SRC_DIR = src/
 INC_DIR = inc/
-SRC		= $(wildcard $(SRC_DIR)checks/*.c) \
-			$(wildcard $(SRC_DIR)cleaners/*.c) \
-			$(wildcard $(SRC_DIR)debugs/*.c) \
-			$(wildcard $(SRC_DIR)draw/*.c) \
-			$(wildcard $(SRC_DIR)game/*.c) \
-			$(wildcard $(SRC_DIR)init/*.c) \
-			$(wildcard $(SRC_DIR)main/*.c) \
-			$(wildcard $(SRC_DIR)raycast/*.c)
+
+SRC_CHK	= $(SRC_DIR)checks/check_args.c \
+				$(SRC_DIR)checks/check_map_border.c \
+				$(SRC_DIR)checks/check_map_equalizer.c \
+				$(SRC_DIR)checks/check_map.c \
+				$(SRC_DIR)checks/check_settings.c \
+				$(SRC_DIR)checks/check_utils.c
+
+SRC_CLN	= $(SRC_DIR)cleaners/exit.c \
+				$(SRC_DIR)cleaners/free.c
+
+SRC_DBG	= $(SRC_DIR)debugs/print_data.c
+
+SRC_DRA	= $(SRC_DIR)draw/draw_utils.c \
+				$(SRC_DIR)draw/floor_ceiling.c \
+				$(SRC_DIR)draw/hud.c \
+				$(SRC_DIR)draw/mini_moving.c \
+				$(SRC_DIR)draw/minimap.c
+
+SRC_GAM	= $(SRC_DIR)game/bonus.c \
+				$(SRC_DIR)game/handle_move.c \
+				$(SRC_DIR)game/handle_rota.c \
+				$(SRC_DIR)game/keypress.c \
+				$(SRC_DIR)game/main_game.c \
+				$(SRC_DIR)game/move_utils.c
+
+SRC_INI	= $(SRC_DIR)init/init_data.c \
+				$(SRC_DIR)init/init_map.c \
+				$(SRC_DIR)init/init_mini.c \
+				$(SRC_DIR)init/init_mlx.c \
+				$(SRC_DIR)init/init_player.c \
+				$(SRC_DIR)init/init_rgb.c \
+				$(SRC_DIR)init/init_textures.c
+
+SRC_MAI	= $(SRC_DIR)main/main.c
+
+SRC_RAY	= $(SRC_DIR)raycast/raycasting.c \
+			$(SRC_DIR)raycast/ray_texture.c \
+			$(SRC_DIR)raycast/ray_utils.c
+
+SRC		= $(SRC_CHK) \
+			$(SRC_CLN) \
+			$(SRC_DBG) \
+			$(SRC_DRA) \
+			$(SRC_GAM) \
+			$(SRC_INI) \
+			$(SRC_MAI) \
+			$(SRC_RAY)
+
 OBJ		= $(SRC:.c=.o)
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
