@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:48 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/24 16:13:50 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 09:31:27 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,24 @@ static void	draw_left_right_border(t_game *game)
 	}
 }
 
+static void	draw_top_left_corner(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = Y_RES - 30;
+	while (y > Y_RES - 30 - 110)
+	{
+		x = X_RES - 30 - 200;
+		while (x < X_RES - 30)
+			my_pixel_put(game, x++, y, 0x202020);
+		y--;
+	}
+}
+
 void	draw_hud(t_game *game)
 {
 	draw_top_bottom_border(game);
 	draw_left_right_border(game);
+	draw_top_left_corner(game);
 }

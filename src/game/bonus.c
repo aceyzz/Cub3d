@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 09:11:18 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:09:15 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ static void	cursor(t_game *game)
 	my_pixel_put(game, x - 1, y, 0x00FF0000);
 	my_pixel_put(game, x, y + 1, 0x00FF0000);
 	my_pixel_put(game, x, y - 1, 0x00FF0000);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->mlx->img, 0,
-		0);
 }
 
 static void	handle_mouse(t_game *game)
 {
 	int	x;
 	int	y;
+	int	i;
 
+	i = 0;
 	mlx_mouse_get_pos(game->mlx->win, &x, &y);
 	if (x < X_RES / 2 - 10)
 		rotate_left(game);
@@ -54,6 +54,17 @@ static void	handle_mouse(t_game *game)
 		rotate_right(game);
 	if (x > X_RES / 2 || x < X_RES / 2)
 		mlx_mouse_move(game->mlx->win, X_RES / 2, Y_RES / 2);
+	while (++i <= game->gun->ammo)
+		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
+			game->gun->f_ammo, X_RES - 225 + (i * 22), Y_RES
+			- game->gun->e_size_y - 35);
+	while (i <= 7)
+	{
+		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
+			game->gun->e_ammo, X_RES - 225 + (i * 22), Y_RES
+			- game->gun->e_size_y - 35);
+		i++;
+	}
 }
 
 static int	shoot(int key, int x, int y, t_game *game)
@@ -62,7 +73,7 @@ static int	shoot(int key, int x, int y, t_game *game)
 	(void)y;
 	if (key == 1)
 	{
-		if (game->gun->ammo > 1)
+		if (game->gun->ammo > 0)
 		{
 			mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
 				game->gun->img2, X_RES / 2 + (X_RES / 8) - game->gun->size_x2
@@ -84,33 +95,21 @@ static void	gun(t_game *game)
 		X_RES / 2 + (X_RES / 8) - game->gun->size_x1 / 2, Y_RES
 		- game->gun->size_y1 - 30);
 	mlx_hook(game->mlx->win, 4, 1L << 2, &shoot, game);
-	if (game->gun->empty_mag)
+	if (game->gun->ammo == 0)
 		mlx_string_put(game->mlx->mlx, game->mlx->win, X_RES / 2 + 10, Y_RES / 2
 			+ 17, 0x00FF0000, "PRESS R TO RELOAD");
 	if (game->keys->r)
 	{
-		game->gun->ammo = 10;
+		game->gun->ammo = 7;
 		game->gun->empty_mag = false;
-	}
-}
-
-static void	draw_ammo(t_game *game)
-{
-	char	*ammo;
-
-	if (game->gun->empty_mag == false)
-	{
-		ammo = ft_itoa(game->gun->ammo);
-		mlx_string_put(game->mlx->mlx, game->mlx->win, X_RES / 2 + 10, Y_RES / 2
-			+ 17, 0x00FF0000, ammo);
-		free(ammo);
 	}
 }
 
 void	bonus(t_game *game)
 {
 	cursor(game);
+	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->mlx->img, 0,
+		0);
 	handle_mouse(game);
 	gun(game);
-	draw_ammo(game);
 }

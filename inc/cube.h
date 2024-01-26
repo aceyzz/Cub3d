@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 08:54:43 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:04:07 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <string.h>
 # include <unistd.h>
 
-# define DEBUG 1
+# define DEBUG 0
 
 # define RST "\033[0m"
 # define RED "\033[1;31m"
@@ -44,6 +44,9 @@
 # define GUN_A "./img/bonus/1.xpm"
 # define GUN_B "./img/bonus/2.xpm"
 # define GUN_C "./img/bonus/3.xpm"
+
+# define F_AMMO "./img/bonus/fhud.xpm"
+# define E_AMMO "./img/bonus/ehud.xpm"
 
 # define K_ESC 53
 # define K_W 13
@@ -155,6 +158,20 @@ typedef struct s_gun
 	int			size_y4;
 	int			ammo;
 	bool		empty_mag;
+	void		*e_ammo;
+	char		*e_addr;
+	int			e_bpp;
+	int			e_len;
+	int			e_endian;
+	int			e_size_x;
+	int			e_size_y;
+	void		*f_ammo;
+	char		*f_addr;
+	int			f_bpp;
+	int			f_len;
+	int			f_endian;
+	int			f_size_x;
+	int			f_size_y;
 }				t_gun;
 
 typedef struct s_tex_utils
