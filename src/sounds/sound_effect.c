@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_utils.c                                      :+:      :+:    :+:   */
+/*   sound_effect.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/27 12:00:00 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 19:09:37 by cedmulle         ###   ########.fr       */
+/*   Created: 2024/01/27 19:09:29 by cedmulle          #+#    #+#             */
+/*   Updated: 2024/01/27 19:13:30 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void	handle_ammos(t_game *game)
+void	gunshot(void)
 {
-	int	i;
+	if (fork() == 0)
+		execl("/usr/bin/afplay", "afplay", "./sound/gunshot.mp3", NULL);
+}
 
-	i = 0;
-	while (++i <= game->gun->ammo)
-		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-			game->gun->f_ammo, X_RES - 225 + (i * 22), Y_RES
-			- game->gun->e_size_y - 35);
-	while (i <= 7)
-	{
-		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-			game->gun->e_ammo, X_RES - 225 + (i * 22), Y_RES
-			- game->gun->e_size_y - 35);
-		i++;
-	}
+void	dryshot(void)
+{
+	if (fork() == 0)
+		execl("/usr/bin/afplay", "afplay", "./sound/dryshot.mp3", NULL);
+}
+
+void	reload(void)
+{
+	if (fork() == 0)
+		execl("/usr/bin/afplay", "afplay", "./sound/reload.mp3", NULL);
 }

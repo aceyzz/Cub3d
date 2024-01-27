@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/27 12:03:21 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/27 19:10:49 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,8 @@ SRC_RAY	= $(SRC_DIR)raycast/raycasting.c \
 			$(SRC_DIR)raycast/ray_texture.c \
 			$(SRC_DIR)raycast/ray_utils.c
 
+SRC_SOU	= $(SRC_DIR)sounds/sound_effect.c
+
 SRC		= $(SRC_CHK) \
 			$(SRC_CLN) \
 			$(SRC_DBG) \
@@ -62,7 +64,8 @@ SRC		= $(SRC_CHK) \
 			$(SRC_GAM) \
 			$(SRC_INI) \
 			$(SRC_MAI) \
-			$(SRC_RAY)
+			$(SRC_RAY) \
+			$(SRC_SOU)
 
 OBJ		= $(SRC:.c=.o)
 CC		= gcc

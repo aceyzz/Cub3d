@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 18:01:45 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/27 19:13:28 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -428,6 +428,10 @@ void			init_mini(t_mini *mini, t_game *game);
 void			render_minimap(t_game *game, t_mini *mini);
 void			render_player(t_game *game, t_mini *mini);
 void			render_line_direction(t_game *game, t_mini *mini);
+/* sound_effect.c */
+void			gunshot(void);
+void			dryshot(void);
+void			reload(void);
 
 #endif
 
