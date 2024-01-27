@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:25:41 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 12:38:30 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/27 18:02:09 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	init_textures(t_game *game)
 	game->east = malloc(sizeof(t_east));
 	game->west = malloc(sizeof(t_west));
 	game->menu = malloc(sizeof(t_texture));
+	game->pause = malloc(sizeof(t_texture));
 	if (game->settings->fl_ispath)
 		game->floor = malloc(sizeof(t_floor));
 	if (game->settings->cl_ispath)
@@ -100,4 +101,8 @@ void	init_textures(t_game *game)
 	if (game->settings->cl_ispath)
 		set_ceil(game);
 	init_gun(game);
+	game->pause->img = mlx_xpm_file_to_image(game->mlx->mlx,
+			"./img/bonus/pause.xpm", &game->pause->width, &game->pause->height);
+	game->pause->addr = mlx_get_data_addr(game->pause->img,
+			&game->pause->bpp, &game->pause->len, &game->pause->endian);
 }

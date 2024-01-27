@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 12:05:48 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/27 18:10:02 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static void	handle_mouse(t_game *game)
 	int	i;
 
 	i = 0;
+	if (game->keys->p == true)
+		return ;
 	mlx_mouse_get_pos(game->mlx->win, &x, &y);
 	if (x < X_RES / 2 - 10)
 		rotate_left(game);
@@ -60,7 +62,7 @@ static int	shoot(int key, int x, int y, t_game *game)
 {
 	(void)x;
 	(void)y;
-	if (key == 1)
+	if (key == 1 && game->keys->p == false)
 	{
 		if (game->gun->ammo > 0)
 		{
@@ -80,6 +82,8 @@ static int	shoot(int key, int x, int y, t_game *game)
 
 static void	gun(t_game *game)
 {
+	if (game->keys->p == true)
+		return ;
 	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->gun->img1,
 		X_RES / 2 + (X_RES / 8) - game->gun->size_x1 / 2, Y_RES
 		- game->gun->size_y1 - 30);
