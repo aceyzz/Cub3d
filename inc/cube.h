@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 19:44:27 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/27 19:51:19 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -314,6 +314,14 @@ typedef struct s_keys
 	bool		no_auto;
 }				t_keys;
 
+enum	e_sounds
+{
+	GUNSHOT,
+	DRYSHOT,
+	RELOAD,
+	SOUNDTRACK
+};
+
 typedef struct s_game
 {
 	int			fd;
@@ -429,9 +437,7 @@ void			render_minimap(t_game *game, t_mini *mini);
 void			render_player(t_game *game, t_mini *mini);
 void			render_line_direction(t_game *game, t_mini *mini);
 /* sound_effect.c */
-void			gunshot(void);
-void			dryshot(void);
-void			reload(void);
+void			sound_effect(int effect);
 
 #endif
 

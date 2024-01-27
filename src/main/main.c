@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 19:43:00 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/27 19:51:34 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 static void	loading_screen(t_game *game)
 {
-	if (fork() == 0)
-		execl("/usr/bin/afplay", "afplay", "./sound/soundtrack.mp3", NULL);
+	sound_effect(SOUNDTRACK);
 	game->menu->img = mlx_xpm_file_to_image(game->mlx->mlx,
 			"./img/bonus/menu.xpm", &game->menu->width, &game->menu->height);
 	game->menu->addr = mlx_get_data_addr(game->menu->img,

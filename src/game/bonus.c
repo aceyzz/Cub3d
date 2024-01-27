@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 19:34:06 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/27 19:52:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ static int	shoot(int key, int x, int y, t_game *game)
 				game->gun->img3, X_RES / 2 + (X_RES / 8) - game->gun->size_x3
 				/ 2, Y_RES - game->gun->size_y3 - 30);
 			game->gun->ammo--;
-			gunshot();
+			sound_effect(GUNSHOT);
 		}
 		else
 		{
-			dryshot();
+			sound_effect(DRYSHOT);
 			game->gun->empty_mag = true;
 		}
 	}
@@ -99,7 +99,7 @@ static void	gun(t_game *game)
 	{
 		game->gun->ammo = 7;
 		game->gun->empty_mag = false;
-		reload();
+		sound_effect(RELOAD);
 	}
 	if (game->keys->e && game->keys->no_auto)
 	{
