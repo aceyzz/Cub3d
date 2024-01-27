@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/26 11:00:49 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/27 12:03:21 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC_DRA	= $(SRC_DIR)draw/draw_utils.c \
 				$(SRC_DIR)draw/minimap.c
 
 SRC_GAM	= $(SRC_DIR)game/bonus.c \
+				$(SRC_DIR)game/bonus_utils.c \
 				$(SRC_DIR)game/handle_move.c \
 				$(SRC_DIR)game/handle_rota.c \
 				$(SRC_DIR)game/keypress.c \

@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 14:24:35 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:05:48 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	cursor(t_game *game)
 	my_pixel_put(game, x, y - 1, 0x00FF0000);
 }
 
-static void	handle_mouse_ammos(t_game *game)
+static void	handle_mouse(t_game *game)
 {
 	int	x;
 	int	y;
@@ -54,17 +54,6 @@ static void	handle_mouse_ammos(t_game *game)
 		rotate_right(game);
 	if (x > X_RES / 2 || x < X_RES / 2)
 		mlx_mouse_move(game->mlx->win, X_RES / 2, Y_RES / 2);
-	while (++i <= game->gun->ammo)
-		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-			game->gun->f_ammo, X_RES - 225 + (i * 22), Y_RES
-			- game->gun->e_size_y - 35);
-	while (i <= 7)
-	{
-		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-			game->gun->e_ammo, X_RES - 225 + (i * 22), Y_RES
-			- game->gun->e_size_y - 35);
-		i++;
-	}
 }
 
 static int	shoot(int key, int x, int y, t_game *game)
@@ -115,6 +104,7 @@ void	bonus(t_game *game)
 	cursor(game);
 	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
 		game->mlx->img, 0, 0);
-	handle_mouse_ammos(game);
+	handle_mouse(game);
+	handle_ammos(game);
 	gun(game);
 }

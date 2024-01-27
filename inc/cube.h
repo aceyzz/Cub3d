@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/26 14:21:31 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:05:12 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -418,6 +418,7 @@ int				calculate_tex_y(t_ray *ray, int y);
 /* bonus.c */
 void			bonus(t_game *game);
 void			minimap(t_game *game);
+void			handle_ammos(t_game *game);
 /* init_mini.c */
 void			init_mini(t_mini *mini, t_game *game);
 /* mini_moving.c */
