@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 13:17:55 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 21:49:37 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:15:53 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static void	draw_texture_pixel_fl(t_game *game, int x, int y)
 	fc.floor_y += fc.step_y * x;
 	tex_x = (int)(fc.floor_x * TEX_SIZE) % TEX_SIZE;
 	tex_y = (int)(fc.floor_y * TEX_SIZE) % TEX_SIZE;
-	my_pixel_put(game, x, y, get_texture_color_fc(game, 'F', tex_x, tex_y));
+	my_pixel_put(game, x, y, apply_fog(get_texture_color_fc(game, 'F', tex_x,
+				tex_y), exp(-FOG * fabs(Y_RES / (2.0 * y - Y_RES)))));
 }
 
 static void	draw_texture_pixel_cl(t_game *game, int x, int y)
@@ -66,7 +67,8 @@ static void	draw_texture_pixel_cl(t_game *game, int x, int y)
 	fc.floor_y += fc.step_y * x;
 	tex_x = (int)(fc.floor_x * TEX_SIZE) % TEX_SIZE;
 	tex_y = (int)(fc.floor_y * TEX_SIZE) % TEX_SIZE;
-	my_pixel_put(game, x, y, get_texture_color_fc(game, 'C', tex_x, tex_y));
+	my_pixel_put(game, x, y, apply_fog(get_texture_color_fc(game, 'C', tex_x,
+				tex_y), exp(-FOG * fabs(Y_RES / (2.0 * y - Y_RES)))));
 }
 
 static void	draw_floor(t_game *game, int x, int y)

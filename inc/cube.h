@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 21:03:01 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:06:23 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@
 # define RUN_SPEED 0.19
 
 # define COLLISION 0.4
+
+# define FOG 0.3
 
 # define FOV 60
 # define TEX_SIZE 128
@@ -422,6 +424,7 @@ void			draw_floor_ceiling(t_game *game);
 void			my_pixel_put(t_game *game, int x, int y, int color);
 int				rgb_to_mlx(int rgb[3]);
 int				add_shader(int color, double distance);
+int				apply_fog(unsigned int color, double fog_factor);
 /* ray_utils.c */
 void			init_rays(t_game *game, t_ray *ray, int x);
 void			calculate_line_height(t_game *game, t_ray *ray);

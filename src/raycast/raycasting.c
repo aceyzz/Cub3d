@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:43:15 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 10:38:34 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:07:12 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static void	draw_wall(t_game *game, t_ray *ray, int x)
 		tex_y = calculate_tex_y(ray, y);
 		tex_x = calculate_tex_x(game, ray);
 		color = get_texture_color(game, ray, tex_x, tex_y);
+		color = apply_fog(color, exp(-FOG * ray->perp_wall_dist));
 		my_pixel_put(game, x, y, color);
 		y++;
 	}
