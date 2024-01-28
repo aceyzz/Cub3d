@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:46:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 09:02:45 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:50:26 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ void	calculate_line_height(t_game *game, t_ray *ray)
 	(void)game;
 	ray->line_height = (int)(Y_RES / ray->perp_wall_dist);
 	ray->draw_start = -ray->line_height / 2 + Y_RES / 2;
-	if (ray->draw_start < 0)
-		ray->draw_start = 0;
+	if (ray->draw_start < 30)
+		ray->draw_start = 30;
 	ray->draw_end = ray->line_height / 2 + Y_RES / 2;
-	if (ray->draw_end >= Y_RES)
-		ray->draw_end = Y_RES - 1;
+	if (ray->draw_end >= Y_RES - 30)
+		ray->draw_end = Y_RES - 30;
 }
 
 void	set_draw_range(t_ray *ray)
 {
 	ray->draw_start = -ray->line_height / 2 + Y_RES / 2;
-	if (ray->draw_start < 0)
-		ray->draw_start = 0;
+	if (ray->draw_start < 30)
+		ray->draw_start = 30;
 	ray->draw_end = ray->line_height / 2 + Y_RES / 2;
-	if (ray->draw_end >= Y_RES)
-		ray->draw_end = Y_RES - 1;
+	if (ray->draw_end >= Y_RES - 30)
+		ray->draw_end = Y_RES - 30;
 }
 
 void	set_step(t_game *game, t_ray *ray)
