@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 11:23:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 11:47:58 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:00:11 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,18 @@ static void	init_pause(t_game *game)
 			&game->pause->endian);
 }
 
+static void	init_gun_hud(t_game *game)
+{
+	game->gun->e_ammo = mlx_xpm_file_to_image(game->mlx->mlx, E_AMMO,
+			&game->gun->e_size_x, &game->gun->e_size_y);
+	game->gun->e_addr = mlx_get_data_addr(game->gun->e_ammo, &game->gun->e_bpp,
+			&game->gun->e_len, &game->gun->e_endian);
+	game->gun->f_ammo = mlx_xpm_file_to_image(game->mlx->mlx, F_AMMO,
+			&game->gun->f_size_x, &game->gun->f_size_y);
+	game->gun->f_addr = mlx_get_data_addr(game->gun->f_ammo, &game->gun->f_bpp,
+			&game->gun->f_len, &game->gun->f_endian);
+}
+
 void	loading_screen(t_game *game)
 {
 	sound_effect(SOUNDTRACK);
@@ -64,4 +76,5 @@ void	init_textures_next(t_game *game)
 	game->skin = malloc(sizeof(t_texture));
 	init_health_minigun_skin(game);
 	init_pause(game);
+	init_gun_hud(game);
 }
