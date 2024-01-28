@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 19:52:00 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 07:00:39 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ static void	handle_mouse(t_game *game)
 {
 	int	x;
 	int	y;
-	int	i;
 
-	i = 0;
 	if (game->keys->p == true)
 		return ;
 	mlx_mouse_get_pos(game->mlx->win, &x, &y);
