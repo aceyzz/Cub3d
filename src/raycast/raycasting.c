@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:43:15 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/23 09:02:26 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 10:38:34 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	raycasting(t_game *game)
 	t_ray	ray;
 	int		x;
 
-	x = -1;
-	while (++x < X_RES)
+	x = 29;
+	while (++x < X_RES - 30)
 	{
 		init_rays(game, &ray, x);
 		set_step(game, &ray);

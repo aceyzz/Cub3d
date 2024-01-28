@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 10:09:41 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 10:30:49 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ static int	shoot(int key, int x, int y, t_game *game)
 		{
 			mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
 				game->gun->img2, X_RES / 2 + (X_RES / 8) - game->gun->size_x2
-				/ 2, Y_RES - game->gun->size_y2 - 30);
+				/ 2, Y_RES - game->gun->size_y2 - 35);
 			mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
 				game->gun->img3, X_RES / 2 + (X_RES / 8) - game->gun->size_x3
-				/ 2, Y_RES - game->gun->size_y3 - 30);
+				/ 2, Y_RES - game->gun->size_y3 - 40);
 			game->gun->ammo--;
 			sound_effect(GUNSHOT);
 		}
@@ -109,8 +109,8 @@ static void	gun(t_game *game)
 void	bonus(t_game *game)
 {
 	cursor(game);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-		game->mlx->img, 0, 0);
+	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win, game->mlx->img, 0,
+		0);
 	handle_mouse(game);
 	handle_ammos(game);
 	gun(game);
