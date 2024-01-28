@@ -6,7 +6,7 @@
 #    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/28 10:05:08 by cedmulle         ###   ########.fr        #
+#    Updated: 2024/01/28 11:31:41 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRC_INI	= $(SRC_DIR)init/init_data.c \
 				$(SRC_DIR)init/init_mlx.c \
 				$(SRC_DIR)init/init_player.c \
 				$(SRC_DIR)init/init_rgb.c \
-				$(SRC_DIR)init/init_textures.c
+				$(SRC_DIR)init/init_textures.c \
+				$(SRC_DIR)init/init_texture_next.c
 
 SRC_MAI	= $(SRC_DIR)main/main.c
 

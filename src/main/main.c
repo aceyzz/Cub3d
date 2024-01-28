@@ -6,22 +6,11 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:28:40 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 19:51:34 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 11:30:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
-
-static void	loading_screen(t_game *game)
-{
-	sound_effect(SOUNDTRACK);
-	game->menu->img = mlx_xpm_file_to_image(game->mlx->mlx,
-			"./img/bonus/menu.xpm", &game->menu->width, &game->menu->height);
-	game->menu->addr = mlx_get_data_addr(game->menu->img,
-			&game->menu->bpp, &game->menu->len, &game->menu->endian);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-		game->menu->img, 0, 0);
-}
 
 int	main(int argc, char **argv)
 {

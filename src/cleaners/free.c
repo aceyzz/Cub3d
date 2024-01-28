@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:38:20 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 18:04:28 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 11:48:33 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ void	free_tab(char **tab)
 		free_ptr(tab[i]);
 	free_ptr(tab);
 	tab = NULL;
+}
+
+static void	free_data_next(t_game *game)
+{
+	free_ptr(game->health);
+	free_ptr(game->minigun);
+	free_ptr(game->skin);
 }
 
 void	free_data(t_game *game)
@@ -57,5 +64,6 @@ void	free_data(t_game *game)
 	free_ptr(game->menu);
 	free_ptr(game->pause);
 	free_ptr(game->mlx);
+	free_data_next(game);
 	free_ptr(game);
 }

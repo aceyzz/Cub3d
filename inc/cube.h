@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 10:38:33 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 11:51:02 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 
 # define X_RES 1280
 # define Y_RES 720
+//for the bonus: DONT CHANGE IT !!!
 
 # define MINIMAP_SCALE 150
 
@@ -348,6 +349,9 @@ typedef struct s_game
 	t_gun		*gun;
 	t_texture	*menu;
 	t_texture	*pause;
+	t_texture	*health;
+	t_texture	*minigun;
+	t_texture	*skin;
 }				t_game;
 
 /* print_data.c */
@@ -380,6 +384,9 @@ void			init_data(t_game **game, char **argv);
 void			init_rgb(t_game *game);
 /* init_textures.c */
 void			init_textures(t_game *game);
+/* init_texture_next.c */
+void			init_textures_next(t_game *game);
+void			loading_screen(t_game *game);
 /* init_map.c */
 void			parse_map(t_game *game);
 void			create_map_copy(t_game **game);
@@ -429,7 +436,9 @@ int				calculate_tex_y(t_ray *ray, int y);
 /* bonus.c */
 void			bonus(t_game *game);
 void			minimap(t_game *game);
+/* bonus_utils.c */
 void			handle_ammos(t_game *game);
+void			health_minigun(t_game *game);
 /* init_mini.c */
 void			init_mini(t_mini *mini, t_game *game);
 /* mini_moving.c */
