@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 21:00:13 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:03:01 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@
 # define K_D 2
 # define K_LEFT 123
 # define K_RIGHT 124
+# define K_UP 126
+# define K_DOWN 125
 # define K_LSHIFT 257
 # define K_R 15
 # define K_E 14
@@ -307,6 +309,8 @@ typedef struct s_keys
 	bool		d;
 	bool		left;
 	bool		right;
+	bool		up;
+	bool		down;
 	bool		shift;
 	bool		r;
 	bool		e;
