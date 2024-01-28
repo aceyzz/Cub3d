@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 10:07:39 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/28 10:09:41 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,11 @@ static void	gun(t_game *game)
 	if (game->gun->ammo == 0)
 		mlx_string_put(game->mlx->mlx, game->mlx->win, X_RES / 2 + 10, Y_RES / 2
 			+ 17, 0x00FF0000, "PRESS R TO RELOAD");
-	if (game->keys->r)
+	if (game->keys->r && game->gun->ammo < 7)
 	{
-		if (game->gun->ammo < 7)
-		{
-			game->gun->ammo = 7;
-			game->gun->empty_mag = false;
-			sound_effect(RELOAD);
-		}
+		game->gun->ammo = 7;
+		game->gun->empty_mag = false;
+		sound_effect(RELOAD);
 	}
 	if (game->keys->e && game->keys->no_auto)
 	{
