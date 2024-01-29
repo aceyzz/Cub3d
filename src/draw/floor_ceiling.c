@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 13:17:55 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 22:15:53 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:20:41 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ static void	draw_texture_pixel_cl(t_game *game, int x, int y)
 static void	draw_floor(t_game *game, int x, int y)
 {
 	if (game->settings->fl_ispath == false)
-		my_pixel_put(game, x, y, rgb_to_mlx(game->settings->fl_rgb));
+		my_pixel_put(game, x, y, apply_fog(rgb_to_mlx(game->settings->fl_rgb),
+				exp(-FOG * fabs(Y_RES / (2.0 * y - Y_RES)))));
 	else
 		draw_texture_pixel_fl(game, x, y);
 }
@@ -95,8 +96,9 @@ void	draw_floor_ceiling(t_game *game)
 			if (cd.dist_floor <= cd.dist_wall)
 			{
 				if (game->settings->cl_ispath == false)
-					my_pixel_put(game, cd.x, cd.y,
-						rgb_to_mlx(game->settings->cl_rgb));
+						my_pixel_put(game, cd.x, cd.y,
+							apply_fog(rgb_to_mlx(game->settings->cl_rgb),
+							exp(-FOG * fabs(Y_RES / (2.0 * cd.y - Y_RES)))));
 				else
 					draw_texture_pixel_cl(game, cd.x, cd.y);
 				draw_floor(game, cd.x, cd.mirrored_y);
