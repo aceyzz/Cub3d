@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:31:01 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/27 18:06:14 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:05:56 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ static void	keypress_next(int keycode, t_game *game)
 	{
 		mlx_clear_window(game->mlx->mlx, game->mlx->win);
 		game->keys->enter = true;
+	}
+	if (keycode == K_M)
+	{
+		game->keys->m = !game->keys->m;
+		mute_music(game);
 	}
 }
 

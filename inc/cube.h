@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/29 14:15:35 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:05:55 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,11 @@
 # define K_D 2
 # define K_LEFT 123
 # define K_RIGHT 124
-# define K_UP 126
-# define K_DOWN 125
 # define K_LSHIFT 257
 # define K_R 15
 # define K_E 14
 # define K_P 35
+# define K_M 46
 # define K_ENTER 36
 
 # define ROTA_SPEED 0.10
@@ -317,6 +316,7 @@ typedef struct s_keys
 	bool		r;
 	bool		e;
 	bool		p;
+	bool		m;
 	bool		enter;
 	bool		no_auto;
 }				t_keys;
@@ -442,6 +442,7 @@ void			bonus(t_game *game);
 void			minimap(t_game *game);
 /* bonus_utils.c */
 void			handle_ammos(t_game *game);
+void			mute_music(t_game *game);
 /* init_mini.c */
 void			init_mini(t_mini *mini, t_game *game);
 /* mini_moving.c */
