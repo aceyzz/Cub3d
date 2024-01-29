@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 12:00:00 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 11:50:05 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:10:36 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,4 @@ void	handle_ammos(t_game *game)
 			- game->gun->e_size_y - 35);
 		i++;
 	}
-}
-
-void	health_minigun(t_game *game)
-{
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-		game->health->img, X_RES / 2 - (game->health->width / 2), 3);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-		game->minigun->img, X_RES / 2 + 185, 5);
-	mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
-		game->skin->img, X_RES / 2 - 220, 5);
 }

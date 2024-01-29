@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:29:13 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 22:06:23 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:15:35 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -355,9 +355,6 @@ typedef struct s_game
 	t_gun		*gun;
 	t_texture	*menu;
 	t_texture	*pause;
-	t_texture	*health;
-	t_texture	*minigun;
-	t_texture	*skin;
 }				t_game;
 
 /* print_data.c */
@@ -445,7 +442,6 @@ void			bonus(t_game *game);
 void			minimap(t_game *game);
 /* bonus_utils.c */
 void			handle_ammos(t_game *game);
-void			health_minigun(t_game *game);
 /* init_mini.c */
 void			init_mini(t_mini *mini, t_game *game);
 /* mini_moving.c */

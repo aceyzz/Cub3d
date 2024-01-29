@@ -6,7 +6,7 @@
 /*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:29:58 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/28 11:28:44 by cedmulle         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:11:00 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,4 @@ void	bonus(t_game *game)
 	handle_mouse(game);
 	handle_ammos(game);
 	gun(game);
-	health_minigun(game);
 }
