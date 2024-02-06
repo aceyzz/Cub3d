@@ -131,14 +131,12 @@ Nous répétons ce processus pour chaque colonne de pixels sur l'écran, ce qui 
 <img src="screenshot/creepy_2.png" alt="ssht" style="width: 100%">
 <img src="screenshot/125_1.png" alt="ssht" style="width: 100%">
 <img src="screenshot/125_2.png" alt="ssht" style="width: 100%">
-<img 
-    style="display: block; 
-           margin-left: auto;
-           margin-right: auto;
-           width: 50%;"
-    src="screenshot/shell.png"
-    alt="ssht">
-</img>
+<div style="display: flex; justify-content: center;">
+	<img 
+		style="width: 50%;"
+		src="screenshot/shell.png"
+		alt="ssht">
+</div>
 
 <br>
 
