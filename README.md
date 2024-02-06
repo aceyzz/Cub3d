@@ -133,7 +133,7 @@ Nous répétons ce processus pour chaque colonne de pixels sur l'écran, ce qui 
 <img src="screenshot/125_2.png" alt="ssht" style="width: 100%">
 <div style="display: flex; justify-content: center; align-items: center;">
 	<img 
-		style="width: 50%;"
+		style="display: flex; justify-content: center; align-items: center; width: 50%;"
 		src="screenshot/shell.png"
 		alt="ssht">
 </div>
