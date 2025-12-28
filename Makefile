@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+         #
+#    By: cedmulle <cedmulle@student.42lausanne.ch>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 18:47:51 by cedmulle          #+#    #+#              #
-#    Updated: 2024/01/28 11:31:41 by cedmulle         ###   ########.fr        #
+#    Updated: 2025/12/28 16:23:37 by cedmulle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,16 @@ NAME	= cube
 SRC_DIR = src/
 INC_DIR = inc/
 
-# Détection du système d'exploitation
+# detect de l'OS
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	MLX_DIR = $(INC_DIR)mlx-linux
-	MLX_LIB = -L./$(MLX_DIR) -lmlx -L/usr/lib/x86_64-linux-gnu -lXext -lX11 -lm -lbsd
+	MLX_LIB = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
+	MLX_FLAGS = -I/usr/include -I$(MLX_DIR) -O3
 else ifeq ($(UNAME_S),Darwin)
 	MLX_DIR = $(INC_DIR)mlx
 	MLX_LIB = -L./$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -O3 -ffast-math
+	MLX_FLAGS = -I$(MLX_DIR)
 endif
 
 SRC_CHK	= $(SRC_DIR)checks/check_args.c \
@@ -87,16 +89,16 @@ all:
 	@echo "\n     $(BLU)MLX    Compiling ($(UNAME_S))...$(RST)\n"
 	@make -C $(MLX_DIR)
 	@echo "\n     $(CYA)LIBFT  Compiling...$(RST)\n"
-	@make -C $(INC_DIR)libft > /dev/null 2>&1
+	@make -C $(INC_DIR)libft
 	@make $(NAME)
 	@mkdir -p ./obj
 	@mv $(OBJ) ./obj
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(INC_DIR)libft/libft.a $(MLX_DIR)/libmlx.a $(MLX_LIB)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(INC_DIR)libft/libft.a $(MLX_LIB)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
+	@$(CC) $(CFLAGS) $(MLX_FLAGS) -c $< -o $@ -I $(INC_DIR)
 
 clean:
 	@$(RM) $(OBJ)

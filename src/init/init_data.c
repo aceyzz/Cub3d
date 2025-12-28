@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: cedmulle <cedmulle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:14:36 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/29 14:57:36 by cedmulle         ###   ########.fr       */
+/*   Updated: 2025/12/28 16:15:49 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	parse_filecontent(t_game *game)
 {
 	char	buf[1];
+	int		ret;
 
 	game->fd = open(game->filename, O_RDONLY);
 	if (game->fd == -1)
@@ -26,7 +27,8 @@ static void	parse_filecontent(t_game *game)
 	if (!game->filecontent_str)
 		errmsg("Malloc error", true, game);
 	game->fd = open(game->filename, O_RDONLY);
-	read(game->fd, game->filecontent_str, game->filecontent_size);
+	ret = read(game->fd, game->filecontent_str, game->filecontent_size);
+	(void)ret;
 	game->filecontent_str[game->filecontent_size] = '\0';
 	close(game->fd);
 	if (!game->filecontent_str || !game->filecontent_str[0])

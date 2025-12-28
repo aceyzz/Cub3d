@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cedmulle <cedmulle@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: cedmulle <cedmulle@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 12:00:00 by cedmulle          #+#    #+#             */
-/*   Updated: 2024/01/29 15:05:55 by cedmulle         ###   ########.fr       */
+/*   Updated: 2025/12/28 16:15:12 by cedmulle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void	handle_ammos(t_game *game)
 void	mute_music(t_game *game)
 {
 	static int	i = 0;
+	int			ret;
 
 	if (game->keys->m == true)
 	{
-		system("killall afplay");
+		ret = system("killall afplay");
+		(void)ret;
 		i = 1;
 	}
 	if (game->keys->m == false && i == 1)
