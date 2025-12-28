@@ -14,7 +14,13 @@
 # define CUBE_H
 
 # include "libft/libft.h"
-# include "mlx/mlx.h"
+
+# ifdef __APPLE__
+#  include "mlx/mlx.h"
+# elif defined(__linux__)
+#  include "mlx-linux/mlx.h"
+# endif
+
 # include <errno.h>
 # include <fcntl.h>
 # include <limits.h>

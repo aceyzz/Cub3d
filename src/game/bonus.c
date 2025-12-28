@@ -47,13 +47,23 @@ static void	handle_mouse(t_game *game)
 
 	if (game->keys->p == true)
 		return ;
+# ifdef __linux__
+	mlx_mouse_get_pos(game->mlx->mlx, game->mlx->win, &x, &y);
+# else
 	mlx_mouse_get_pos(game->mlx->win, &x, &y);
+# endif
 	if (x < X_RES / 2 - 10)
 		rotate_left(game);
 	if (x > X_RES / 2 + 10)
 		rotate_right(game);
 	if (x > X_RES / 2 || x < X_RES / 2)
+	{
+# ifdef __linux__
+		mlx_mouse_move(game->mlx->mlx, game->mlx->win, X_RES / 2, Y_RES / 2);
+# else
 		mlx_mouse_move(game->mlx->win, X_RES / 2, Y_RES / 2);
+# endif
+	}
 }
 
 static int	shoot(int key, int x, int y, t_game *game)

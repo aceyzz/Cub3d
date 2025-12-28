@@ -23,7 +23,11 @@ int	main(int argc, char **argv)
 	init_mlx(game);
 	init_textures(game);
 	loading_screen(game);
+# ifdef __linux__
+	mlx_mouse_move(game->mlx->mlx, game->mlx->win, X_RES / 2, Y_RES / 2);
+# else
 	mlx_mouse_move(game->mlx->win, X_RES / 2, Y_RES / 2);
+# endif
 	mlx_loop_hook(game->mlx->mlx, main_game, game);
 	mlx_hook(game->mlx->win, 2, 1L << 0, &keypress, game);
 	mlx_hook(game->mlx->win, 3, 1L << 1, &keyrelease, game);

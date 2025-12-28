@@ -66,7 +66,11 @@ int	main_game(t_game *game)
 		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
 			game->mlx->img, 0, 0);
 		bonus(game);
+# ifdef __linux__
+		mlx_mouse_hide(game->mlx->mlx, game->mlx->win);
+# else
 		mlx_mouse_hide();
+# endif
 	}
 	if (game->keys->p == true)
 	{
@@ -75,7 +79,11 @@ int	main_game(t_game *game)
 			game->mlx->img, 0, 0);
 		mlx_put_image_to_window(game->mlx->mlx, game->mlx->win,
 			game->pause->img, 0, 0);
+# ifdef __linux__
+		mlx_mouse_show(game->mlx->mlx, game->mlx->win);
+# else
 		mlx_mouse_show();
+# endif
 	}
 	return (0);
 }
